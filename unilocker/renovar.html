@@ -1,0 +1,110 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<title> UNILOCKER - Renovar</title>
+	<link rel="icon" href="img/iconoPag.png">
+
+	<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">	
+
+	<!--Librerias CSS-->
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="css/icon.css">
+    <link rel="stylesheet" type="text/css" href="css/animate.css">
+    <link rel="stylesheet" type="text/css" href="css/sweet-alert.css">
+    <link rel="stylesheet" href="css/bootstrap-select.min.css">
+
+	<!--Estilos mios-->	
+	<link href="css/style.css" rel="stylesheet">
+
+</head>
+<body>
+  <div class="container-fluid ">
+
+    <div class="row menu atras-nav" id="ElMenu" data-include = "menu"></div> 
+    
+    <div class="row contenido">
+
+      <div class="container">
+
+          <!-- opciones -->     
+
+          <div class="rentar">
+            <div class="title-blue">Renovar</div>
+
+            <div class="cnt-frm cnt-body-blanco">           
+              
+              <div class="frm-left">
+                <div class="text-left frm-data">
+                    <p class="typ-paragraph" id="msg_rentar_user">Renueva el mismo locker, imprime tu ticket y ve a sociedad de alumnos a pagarlo.</p>
+                    <p class="elem-hide typ-paragraph" id="msg_rentar_admin">Selecciona la matricula del alumno, el locker y de ser necesario algún mensaje para renovar su locker.</p>
+                </div>
+
+                <div class="elem-hide frm-input" id="renovarMat">
+                  <label for="" class="lbl-input">Matricula</label>
+                  <select class="selectpicker input-selectpicker" data-live-search="true" id="Renovar_Matricula"></select>
+                </div>
+
+                <div class="frm-input">
+                  <label for="mail" class="lbl-input">Sección</label>
+                  <select class="selectpicker input-selectpicker" data-live-search="true" id="Renovar_Seccion"></select>
+                </div>
+
+                <div class="frm-input">
+                  <label for="" class="lbl-input">Número de Locker</label>
+                  <select class="selectpicker input-selectpicker" data-live-search="true" id="Renovar_NumLocker"></select>
+                </div>
+
+                <div class="elem-hide frm-input" id="renovarCom">
+                   <label for="coment_rent" class="lbl-input">Comentarios</label>
+                   <textarea class="form-control" rows="5" placeholder="Escriba su mensaje aquí." id="coment_renov"></textarea>
+                </div>
+
+                <div class="frm-data text-right">
+                  <div class="btn btn-Form" id="Renovar">Renovar</div>
+                </div>
+
+              </div>
+
+                <div class="frm-right">
+                    <div class="text-center precioLocker" id="precioLock"></div>
+                    <div class="img-center img-pos-locker">
+                        <img src="" class="img-responsive img_5" id="imgDelLocker">
+                    </div>
+                </div>
+
+            
+             
+            </div>
+
+          </div>
+
+      </div>
+
+    </div>
+
+    <div class="row copyright" id="copyright">
+      <div class="container"> 
+        <span>Copyright © 2017 UNILOCKER ®. All rights reserved.</span>
+      </div>
+    </div>
+
+  </div>
+    <!-- Librerias JS -->
+      <script type="text/javascript" src = "js/jquery-3.2.1.min.js"></script>
+      <script type="text/javascript" src = "js/bootstrap.js"></script>
+      <script type="text/javascript" src = "js/jquery.waypoints.min.js"></script>
+      <script type="text/javascript" src = "js/noframework.waypoints.min.js"></script>
+      <script type="text/javascript" src = "js/sweet-alert.min.js"></script>
+      <script type="text/javascript" src = "js/bootstrap-select.min.js"></script>
+    <!-- jcueros mios -->
+      <script type="text/javascript" src="jWS/menu.js"> </script>
+      <script type="text/javascript" src="js/animations.js"> </script>
+
+      <script type="text/javascript" src="jWS/funciones.js"> </script>
+      <script type="text/javascript" src="jWS/renovar.js"> </script>
+</body>
+
+</html>

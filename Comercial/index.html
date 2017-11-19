@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> UNILOCKER </title>
+	<link rel="icon" href="img/iconoPag.png">
+
+	<meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">	
+
+	<!--Librerias-->
+
+  <link href="css/bootstrap.css" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="css/icon.css">
+  <link rel="stylesheet" type="text/css" href="css/animate.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+	<script type="text/javascript" src = "js/jquery-3.2.1.min.js" ></script>
+  <script type="text/javascript" src = "js/bootstrap.js"></script>
+  <script type="text/javascript" src = "js/jquery.waypoints.min.js"></script>
+  <script type="text/javascript" src = "js/noframework.waypoints.min.js"></script>
+
+	<!--Estilos-->	
+	<link href="css/style.css" rel="stylesheet">
+
+</head>
+
+<body>
+  <div class="container-fluid">
+
+    <div class="row menu">
+      <nav class="navbar nb-color navbar-fixed-top" role="navigation">
+        <div class = "container">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle nb-btn-mini" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+              <span class="sr-only">More</span>
+              <i class="content icon" style="font-size: 30px;"></i>
+            </button>
+            <a class="navbar-brand logotipo" href="#Main" id="mm">
+              <img src="img/unilocker.png" class = "logoNav">
+            </a>
+          </div>
+          
+          <div class="collapse navbar-collapse navbar-ex1-collapse listita" >
+            <ul class="nav navbar-nav navbar-right">
+              <li><a href="#nosotros" class = "nb-link" id="nos">Nosotros</a></li>
+              <li><a href="#rentar" class = "nb-link" id="ren">Rentar ahora</a></li>
+              <li><a href="#contacto" class = "nb-link" id="con">Contacto</a></li>      
+            </ul>
+           </div>
+        </div>
+      </nav>
+    </div>
+
+    <div class="row slider" id="Main">
+      <div class="mensaje">
+        <h2>Consigue de manera rápida tu locker. Sólo basta un ¡click!</h2>
+      </div>
+    </div>
+
+    <div class="row nosotros" id="nosotros">
+      <div class="container text-center">
+          <h1>NOSOTROS</h1>
+          <img src="img/raya.png">
+          <p>
+            Nosotros como estudiantes sabemos lo tardado y tedioso que puede llegar a ser rentar un locker, es por esta necesidad, que surge <b>UNILOCKER</b>.<br>
+			Pensando en la comodidad del estudiante, decidimos que la renta de un locker sea un proceso sencillo desde la comodidad de tu computadora o  dispositivo movil.
+          </p>
+          <div class="iconitos">
+            <div class="col-xs-4 text-center ico animated">
+              <img src="img/RELOJ.png" class="img-responsive">
+              <h3>Tiempo</h3>
+            </div>
+            <div class="col-xs-4 text-center ico animated">
+              <img src="img/CARA.png" class="img-responsive">
+              <h3>Comodidad</h3>
+            </div>
+            <div class="col-xs-4 text-center ico animated">
+              <img src="img/CANDADO.png" class="img-responsive">
+              <h3>Seguridad</h3>
+            </div>
+          </div>
+      </div>
+    </div>
+
+    <div class="row rentar" id="rentar">
+      <div class="container text-center">
+        <h1>RENTAR</h1>
+        <img src="img/raya.png">
+
+        <div class="infoRen">
+          <div class="col-sm-7 dataInfoRen animated">
+            <p>
+              ¡Aparta tu locker ahora mismo en la comodidad de tu hogar!
+            </p>
+            <a href="http://unilocker.com.mx/" class="btn">RENTAR</a>
+          </div>
+          <div class="col-sm-5 imgLocker animated">
+            <img src="img/locker.png" class="img-responsive">
+          </div>
+        </div>
+     
+      </div>
+    </div>
+
+    <div class="row contacto" id="contacto">
+      <div class="container text-center">
+        <h1>CONTACTO</h1>
+        <img src="img/raya.png">
+        <p>
+          Déjanos tus comentarios o preguntas, así mejoraremos para ti
+        </p>
+
+        <div class="formulario text-left">
+          <form>
+            <div class="col-sm-6">
+              <div class="form-group coso animated">
+                <label for="nombre">Nombre</label>
+                <input type="text" class="form-control" id="nombre">
+              </div>
+              <div class="form-group coso animated">
+                <label for="correo">Correo</label>
+                <input type="text" class="form-control" id="correo">
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="form-group coso animated">
+                <label for="mensaje">Mensaje</label>
+                <textarea class="form-control" rows="4" id="mensaje"></textarea>
+              </div>
+            </div>
+            <div class="col-sm-12 text-center">
+              <button class="btn">ENVIAR</button>
+            </div>
+          </form>          
+        </div>
+      </div>      
+    </div>
+
+    <div class="row copyright" id="copyright">
+      <div class="container"> 
+        <span>Copyright © 2017 UNILOCKER ®. All rights reserved.
+</span>
+      </div>
+    </div>
+</div>
+</body>
+	<!--Jcueros y eso-->
+  <script type="text/javascript" src = "js/scrolito.js"></script>
+
+</html>

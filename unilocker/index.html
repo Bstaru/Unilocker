@@ -1,0 +1,147 @@
+﻿
+<!DOCTYPE html>
+<html>
+<head>
+	<title> UNILOCKER </title>
+	<link rel="icon" href="img/iconoPag.png">
+
+	<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">	
+
+	<!--Librerias-->
+
+      <link href="css/bootstrap.css" rel="stylesheet">
+      <link rel="stylesheet" type="text/css" href="css/icon.css">
+      <link rel="stylesheet" type="text/css" href="css/animate.css">
+    <link rel="stylesheet" type="text/css" href="css/sweet-alert.css">
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+	  <script type="text/javascript" src= "js/jquery-3.2.1.min.js" ></script>
+      <script type="text/javascript" src = "js/bootstrap.js"></script>
+      <script type="text/javascript" src = "js/jquery.waypoints.min.js"></script>
+      <script type="text/javascript" src = "js/noframework.waypoints.min.js"></script>
+    <script type="text/javascript" src="js/sweet-alert.min.js"></script>
+
+	<!--Estilos-->	
+	<link href="css/style.css" rel="stylesheet">
+
+</head>
+
+<body id="login">
+  <div class="container-fluid">
+
+    <div class="row index">
+
+      <div class="container cntForm">
+        <div class="col-sm-7">
+            <img src="img/unilocker.png" class="imgLogo img-responsive">
+        </div>
+      </div>
+
+      <div class="container cntForm animated " id="form-login">
+        <div class="col-sm-7">
+          <form id="Login-User">
+              <div class="col-sm-12 form-group">
+                <label for="mail" class="lbl-Form">Correo</label>
+                <input type="text" class="form-control input-txt-Form ShadowInput" id="mail" placeholder="correo@ejemplo.com">
+              </div>
+
+              <div class="col-sm-12 form-group">
+                <label for="pass" class="lbl-Form">Contraseña</label>
+                <input type="password" class="form-control input-pass-Form ShadowInput" id="pass">
+              </div>
+
+              <div class="col-sm-12 text-center cnt-cb-recordar">
+                <div class="col-sm-6 text-center">
+                   <div class="frm-checkbox cont-rel">
+                      <input type="checkbox" name="ideas" value="recordar" id="recordar"> 
+                        <label for="recordar"></label>
+                        <span class="">Recordar datos.</span>
+                        <br>
+                    </div>              
+                </div>
+                <div class="col-sm-6">
+                    <div class="links link-olvide">
+                      <a href="" id="">Olvidé mi contraseña</a>
+                    </div>
+                </div>
+              </div>
+
+              <div class="col-sm-12 text-center">
+                <div class="btn btn-Form" id="btn-login">ENVIAR</div>
+              </div>
+
+              <div class="col-sm-12 text-center">
+                <span class="spn-txt">¿Nuevo?</span>
+                <div class="links">
+                  <span id="create-account">Crear cuenta</span>
+                </div>
+              </div> 
+          </form>
+        </div>
+        <div class="col-sm-5">
+            <img src="img/locker.png" class="imgLockerr img-responsive">
+        </div>      
+      </div>
+
+      <div class="elem-hide container cntForm animated" id="form-new">   
+          <form id="New-User">
+              <div class="col-sm-6 form-group">
+                <label for="nName" class="lbl-Form">Nombre(s)</label>
+                <input type="text" class="form-control input-txt-Form ShadowInput" id="nName" >
+              </div>
+              <div class="col-sm-6 form-group">
+                <label for="nLast" class="lbl-Form">Apellido(s)</label>
+                <input type="text" class="form-control input-txt-Form ShadowInput" id="nLast" >
+              </div>
+              <div class="col-sm-6 form-group">
+                  <label for="nMat" class="lbl-Form">Matrícula</label>
+                  <input type="text" class="form-control input-txt-Form ShadowInput" id="nMat" placeholder="" maxlength="7">
+              </div>
+              <div class="col-sm-6 form-group">
+                <label for="nMail" class="lbl-Form">Correo</label>
+                <input type="text" class="form-control input-txt-Form ShadowInput" id="nMail" placeholder="correo@ejemplo.com">
+              </div>            
+
+              <div class="col-sm-6 form-group">
+                <label for="nPass" class="lbl-Form">Contraseña</label>
+                <input type="password" class="form-control input-pass-Form ShadowInput" id="nPass">
+              </div>
+
+              <div class="col-sm-6 form-group">
+                <label for="nConPass" class="lbl-Form">Confirma la contraseña</label>
+                <input type="password" class="form-control input-pass-Form ShadowInput" id="nConPass">
+              </div>
+
+              <div class="col-sm-12 text-center">
+                  <div class="cont-rel">
+                      <div class="btn btn-Form btn-up elem-hide" id="newUserUp" disabled>CREAR</div>
+                      <div class="btn btn-Form btn-down" id="newUser">CREAR</div>
+                  </div>                              
+              </div>
+
+              <div class="col-sm-12 text-right sitengocuenta">
+                <div class="links">
+                  <span id="return-login">Si tengo cuenta.</span>
+                </div>
+              </div>
+          </form>  
+      </div>
+    </div>
+
+    <div class="row cpy-login" id="copyright">
+      <div class="container"> 
+        <span>Copyright © 2017 UNILOCKER ®. All rights reserved.</span>
+      </div>
+    </div>
+  </div>
+
+    <!--Jcueros y eso-->
+    <script type="text/javascript" src="js/animations.js"></script>
+    <script type="text/javascript" src="jWS/funciones.js"> </script>
+    <script type="text/javascript" src="jWS/login.js"></script>
+    <script type="text/javascript" src="jWS/new.js"></script>
+
+</body>	
+
+</html>

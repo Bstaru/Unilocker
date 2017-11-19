@@ -1,0 +1,136 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+  <title> UNILOCKER - Configuración</title>
+  <link rel="icon" href="img/iconoPag.png">
+
+  <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">  
+
+  <!--Librerias CSS-->
+
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="css/icon.css">
+    <link rel="stylesheet" type="text/css" href="css/animate.css">
+    <link rel="stylesheet" type="text/css" href="css/sweet-alert.css">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap-select.min.css">
+    <link rel="stylesheet" type="text/css" href="DataTables/datatables.css"/>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/izimodal/1.5.1/css/iziModal.min.css"/>
+
+  <!--Estilos mios--> 
+  <link href="css/style.css" rel="stylesheet">
+
+</head>
+<body>
+
+  <div class="container-fluid ">
+
+    <div class="row menu atras-nav" id="ElMenu" data-include = "menu"></div>   
+    
+    <div class="row contenido">
+
+      <div class="container">    
+
+          <div class="rentar">
+            <div class="title-blue">Configuiración</div>
+
+            <div class="cnt-frm cnt-body-blanco">           
+              
+              <div class="frm-all">
+                <p class="typ-paragraph typ-info-edit">Editar mis datos de perfil:</p>
+
+                      <div class="col-sm-6 form-group">
+                          <div class="fotito">
+                              <div class="uploader" onclick="$('#filePhoto').click()">
+                                  <img src="imgs-profile/default.png" />
+                                  <input type="file" name="userprofile_picture" id="filePhoto" />
+                              </div>
+                              <p class="typ-paragraph text-center">Dá clic o arrastra tu imagen</p>
+                          </div>
+                      </div>
+                      <div class="col-sm-6 form-group">
+                          <label for="nombre_edit" class="lbl-Form-edit">Nombre(s):</label>
+                          <input type="text" class="form-control input-txt-Form-edit" id="nombre_edit">
+                      </div>
+                      <div class="col-sm-6 form-group">
+                          <label for="apellidos_edit" class="lbl-Form-edit">Apellidos:</label>
+                          <input type="text" class="form-control input-txt-Form-edit" id="apellidos_edit">
+                      </div>
+                      <div class="col-sm-6 form-group">
+                          <label for="mat_edit" class="lbl-Form-edit">Matrícula:</label>
+                          <input type="text" class="form-control input-txt-Form-edit" id="mat_edit">
+                      </div>
+                      <div class="col-sm-6 form-group">
+                          <label for="correo_edit" class="lbl-Form-edit">Correo:</label>
+                          <input type="text" class="form-control input-txt-Form-edit" id="correo_edit">
+                      </div>
+                      <div class="col-sm-12 text-right">
+                          <div class="btn btn-Form" id="GuardarData_1" idUser="">Guardar</div>
+                          <br><br>
+                      </div>
+                  <hr>
+                <p class="typ-paragraph typ-info-edit">Cambiar contraseña:</p>
+
+                  <div class="col-sm-6 form-group">
+                    <label for="correo_edit" class="lbl-Form-edit">Contraseña nueva:</label>
+                    <input type="password" class="form-control input-pass-Form-edit" id="correo_edit_1">
+                  </div>
+                  <div class="col-sm-6 form-group">
+                    <label for="correo_edit" class="lbl-Form-edit">Repetir contraseña:</label>
+                    <input type="password" class="form-control input-pass-Form-edit" id="correo_edit_2">
+                  </div>
+
+                  <div class="col-sm-12 text-right">
+                    <div class="btn btn-Form"  id="GuardarData_2" idUser2="">Cambiar</div>
+                    <br><br>
+                  </div>
+              </div>
+                
+            </div>
+
+          </div>
+
+      </div>
+
+    </div>
+
+    <div class="row copyright" id="copyright">
+      <div class="container"> 
+        <span>Copyright © 2017 UNILOCKER ®. All rights reserved.</span>
+      </div>
+    </div>
+
+  </div>
+    <!-- Librerias JS -->
+      <script type="text/javascript" src = "js/jquery-3.2.1.min.js"></script>
+      <script type="text/javascript" src = "js/bootstrap.js"></script>
+      <script type="text/javascript" src = "js/jquery.waypoints.min.js"></script>
+      <script type="text/javascript" src = "js/noframework.waypoints.min.js"></script>
+      <script type="text/javascript" src = "js/sweet-alert.min.js"></script>
+      <script type="text/javascript" src = "js/bootstrap-select.min.js"></script>
+      <script type="text/javascript" src = "DataTables/datatables.min.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/izimodal/1.5.1/js/iziModal.min.js"></script> 
+    <!-- jcueros mios -->
+      <script type="text/javascript" src="jWS/menu.js"> </script>
+      <script type="text/javascript" src="js/animations.js"> </script>
+
+      <script type="text/javascript" src="jWS/funciones.js"> </script>
+      <script type="text/javascript" src="jWS/config.js"> </script>
+      <script type="text/javascript">
+        var imageLoader = document.getElementById('filePhoto');
+            imageLoader.addEventListener('change', handleImage, false);
+
+        function handleImage(e) {
+            var reader = new FileReader();
+            reader.onload = function (event) {
+                
+                $('.uploader img').attr('src',event.target.result);
+            }
+            reader.readAsDataURL(e.target.files[0]);
+        }
+
+      </script>
+
+</body>
+
+</html>

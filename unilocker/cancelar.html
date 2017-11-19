@@ -1,0 +1,101 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<title> UNILOCKER - Cancelar</title>
+	<link rel="icon" href="img/iconoPag.png">
+
+	<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">	
+
+	<!--Librerias CSS-->
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="css/icon.css">
+    <link rel="stylesheet" type="text/css" href="css/animate.css">
+    <link rel="stylesheet" type="text/css" href="css/sweet-alert.css">
+    <link rel="stylesheet" href="css/bootstrap-select.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/izimodal/1.5.1/css/iziModal.min.css" />
+
+	<!--Estilos mios-->	
+	<link href="css/style.css" rel="stylesheet">
+
+</head>
+<body>
+  <div id="SeRento typ-paragraph modales"></div>
+
+  <div class="container-fluid ">
+
+    <div class="row menu atras-nav" id="ElMenu" data-include = "menu"></div> 
+    
+    <div class="row contenido">
+
+      <div class="container">
+
+          <!-- opciones -->     
+
+          <div class="rentar">
+            <div class="title-blue">Cancelar</div>
+
+            <div class="cnt-frm cnt-body-blanco">           
+              
+              <div class="frm-all">
+                <div class="text-left frm-data">
+                  <p class="typ-paragraph" id="msg_cancelar_user">Cancela tu locker.</p>
+
+                  <p class="elem-hide typ-paragraph" id="msg_cancelar_admin">Cancela el locker del alumno.</p>
+                </div>
+
+                <div class="elem-hide frm-input col-sm-4"  id="cancelarMat">
+                  <label for="" class="lbl-input">Matricula</label>
+                  <select class="selectpicker input-selectpicker" data-live-search="true" id="Cancelar_Matricula"></select>
+                </div>
+
+                <div class="frm-input col-sm-4">
+                  <label for="" class="lbl-input">Número de Locker</label>
+                  <select class="selectpicker input-selectpicker" data-live-search="true" id="Cancelar_NumLocker"></select>
+                </div>
+
+                <div class="elem-hide frm-input col-sm-12" id="cancelarCom">
+                   <label for="coment_rent" class="lbl-input">Comentarios</label>
+                   <textarea class="form-control" rows="5" id="coment_can" placeholder="Escriba su mensaje aquí."></textarea>
+                </div>
+
+                <div class="frm-data text-right">
+                  <div class="btn btn-Form" id="Cancelar">Cancelar</div>
+                </div>
+
+              </div>           
+             
+            </div>
+
+          </div>
+
+      </div>
+
+    </div>
+
+    <div class="row copyright" id="copyright">
+      <div class="container"> 
+        <span>Copyright © 2017 UNILOCKER ®. All rights reserved.</span>
+      </div>
+    </div>
+
+  </div>
+    <!-- Librerias JS -->
+    <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.js"></script>
+    <script type="text/javascript" src="js/jquery.waypoints.min.js"></script>
+    <script type="text/javascript" src="js/noframework.waypoints.min.js"></script>
+    <script type="text/javascript" src="js/sweet-alert.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap-select.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/izimodal/1.5.1/js/iziModal.min.js"></script> 
+    <!-- jcueros mios -->
+    <script type="text/javascript" src="jWS/menu.js"> </script>
+    <script type="text/javascript" src="js/animations.js"> </script>
+
+    <script type="text/javascript" src="jWS/funciones.js"> </script>
+    <script type="text/javascript" src="jWS/cancelar.js"> </script>
+</body>
+
+</html>

@@ -1,0 +1,147 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<title> UNILOCKER - Reportes</title>
+	<link rel="icon" href="img/iconoPag.png">
+
+	<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">	
+
+	<!--Librerias CSS-->
+
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="css/icon.css">
+    <link rel="stylesheet" type="text/css" href="css/animate.css">
+    <link rel="stylesheet" type="text/css" href="css/sweet-alert.css">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap-select.min.css">
+    <link rel="stylesheet" type="text/css" href="DataTables/datatables.css"/>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/izimodal/1.5.1/css/iziModal.min.css" />
+
+	<!--Estilos mios-->	
+	<link href="css/style.css" rel="stylesheet">
+
+</head>
+<body>
+    <div id="Modal_con" class="elem-hide typ-paragraph modales">
+        <p class="typ-modal-info">¿Convertir este a <span id="NombreUs"></span> en Administrador?.</p>
+
+        <div class="text-center">
+            <div class="btn btn-aceptar" id="SiAdmin" idRegistro=""> Si</div>
+            <div class="btn btn-liberar" id="cancelar" idRegistro=""> Cancelar</div>
+        </div>
+    </div>
+
+    <div id="SeRento typ-paragraph modales"></div>
+    <div id="SeRento2 typ-paragraph modales"></div>
+
+  <div class="container-fluid ">
+
+    <div class="row menu atras-nav" id="ElMenu" data-include = "menu"></div> 
+    
+    <div class="row contenido">
+
+      <div class="container">    
+
+          <div class="rentar">
+            <div class="title-blue">Reportes</div>
+
+            <div class="cnt-frm cnt-body-blanco">           
+              
+              <div class="frm-all">
+
+                <div class="text-center datos_filtrar">
+                  <div class="text-left frm-data">
+                    <p class="typ-paragraph" id="msg_renovar_user">Convierte un usuario en administrador o agrega uno nuevo.
+                     </p>
+                      <p class="typ-paragraph typ-bold" id="">Convertir.</p>
+                  </div>
+                </div>                
+
+                <div class="">
+                  <table id="tbl_u_edit" class="display" cellspacing="0" width="100%">
+                      <thead>
+                          <tr>                              
+                              <th>  ID</th>
+                              <th> <i class="photo icon"></i> Foto</th>
+                              <th> <i class="user icon"></i> Nombre</th>
+                              <th> <i class="id card outline icon"></i> Matricula</th>
+                              <th> <i class="mail icon"></i>  Correo</th>
+                              <th> Editar</th>
+                          </tr>
+                      </thead>
+                      <tbody>
+                      </tbody>
+                  </table>                  
+                </div>
+                <div class="nuevo">
+                    <div class="text-left frm-data">
+                        <p class="typ-paragraph typ-bold" id="">Agragar nuevo.</p>
+                    </div>
+
+                    <div class="col-sm-6 form-group">
+                        <label for="nombre_edit" class="lbl-Form-edit">Nombre(s):</label>
+                        <input type="text" class="form-control input-txt-Form-edit" id="nombre_add">
+                    </div>
+                    <div class="col-sm-6 form-group">
+                        <label for="apellidos_edit" class="lbl-Form-edit">Apellidos:</label>
+                        <input type="text" class="form-control input-txt-Form-edit" id="apellidos_add">
+                    </div>
+                    <div class="col-sm-6 form-group">
+                        <label for="mat_edit" class="lbl-Form-edit">Matrícula:</label>
+                        <input type="text" class="form-control input-txt-Form-edit" id="mat_add">
+                    </div>
+                    <div class="col-sm-6 form-group">
+                        <label for="correo_edit" class="lbl-Form-edit">Correo:</label>
+                        <input type="text" class="form-control input-txt-Form-edit" id="correo_add">
+                    </div>
+
+                    <div class="col-sm-6 form-group">
+                        <label for="correo_edit" class="lbl-Form-edit">Contraseña nueva:</label>
+                        <input type="password" class="form-control input-pass-Form-edit" id="correo_add_1">
+                    </div>
+                    <div class="col-sm-6 form-group">
+                        <label for="correo_edit" class="lbl-Form-edit">Repetir contraseña:</label>
+                        <input type="password" class="form-control input-pass-Form-edit" id="correo_add_2">
+                    </div>
+                    <div class="col-sm-12 text-right">
+                        <div class="btn btn-Form" id="GuardarData" idUser2="">Crear</div>
+                        <br><br>
+                    </div>
+                </div>
+
+              </div>
+                
+            </div>
+
+          </div>
+
+      </div>
+
+    </div>
+
+    <div class="row copyright" id="copyright">
+      <div class="container"> 
+        <span>Copyright © 2017 UNILOCKER ®. All rights reserved.</span>
+      </div>
+    </div>
+
+  </div>
+    <!-- Librerias JS -->
+      <script type="text/javascript" src = "js/jquery-3.2.1.min.js"></script>
+      <script type="text/javascript" src = "js/bootstrap.js"></script>
+      <script type="text/javascript" src = "js/jquery.waypoints.min.js"></script>
+      <script type="text/javascript" src = "js/noframework.waypoints.min.js"></script>
+      <script type="text/javascript" src = "js/sweet-alert.min.js"></script>
+      <script type="text/javascript" src = "js/bootstrap-select.min.js"></script>
+      <script type="text/javascript" src="DataTables/datatables.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/izimodal/1.5.1/js/iziModal.min.js"></script> 
+    <!-- jcueros mios -->
+      <script type="text/javascript" src="jWS/menu.js"> </script>
+      <script type="text/javascript" src="js/animations.js"> </script>
+
+      <script type="text/javascript" src="jWS/funciones.js"> </script>
+      <script type="text/javascript" src="jWS/admusuarios.js"> </script>
+
+</body>
+
+</html>

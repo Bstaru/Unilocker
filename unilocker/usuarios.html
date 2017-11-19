@@ -1,0 +1,98 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<title> UNILOCKER - Reportes</title>
+	<link rel="icon" href="img/iconoPag.png">
+
+	<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">	
+
+	<!--Librerias CSS-->
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="css/icon.css">
+    <link rel="stylesheet" type="text/css" href="css/animate.css">
+    <link rel="stylesheet" type="text/css" href="css/sweet-alert.css">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap-select.min.css">
+    <link rel="stylesheet" type="text/css" href="DataTables/datatables.css"/>
+
+	<!--Estilos mios-->	
+	<link href="css/style.css" rel="stylesheet">
+
+</head>
+<body>
+  <div class="container-fluid ">
+
+    <div class="row menu atras-nav" id="ElMenu" data-include = "menu"></div> 
+    
+    <div class="row contenido">
+
+      <div class="container">    
+
+          <div class="rentar">
+            <div class="title-blue">Usuarios</div>
+
+            <div class="cnt-frm cnt-body-blanco">           
+              
+              <div class="frm-all">
+
+                <div class="text-center datos_filtrar">
+                  <div class="text-left frm-data">
+                    <p class="typ-paragraph" id="msg_renovar_user">Observa todos los usuarios.</p>
+                  </div>
+                </div>                
+
+                <div class="">
+                  <table id="tbl_Usuarios" class="display" cellspacing="0" width="100%">
+                      <thead>
+                          <tr>                              
+                              <th>  ID</th>
+                              <th> <i class="photo icon"></i> Foto</th>
+                              <th> <i class="user icon"></i> Nombre</th>
+                              <th> <i class="id card outline icon"></i> Matricula</th>
+                              <th> <i class="mail icon"></i>  Correo</th>
+                              <th>  Tipo</th>
+                              <th>  Activo</th>
+                          </tr>
+                      </thead>
+                      <tbody>
+                      </tbody>
+                  </table>                  
+                </div>
+
+              </div>
+                
+            </div>
+
+          </div>
+
+      </div>
+
+    </div>
+
+    <div class="row copyright" id="copyright">
+      <div class="container"> 
+        <span>Copyright © 2017 UNILOCKER ®. All rights reserved.</span>
+      </div>
+    </div>
+
+  </div>
+    <!-- Librerias JS -->
+      <script type="text/javascript" src = "js/jquery-3.2.1.min.js"></script>
+      <script type="text/javascript" src = "js/bootstrap.js"></script>
+      <script type="text/javascript" src = "js/jquery.waypoints.min.js"></script>
+      <script type="text/javascript" src = "js/noframework.waypoints.min.js"></script>
+      <script type="text/javascript" src = "js/sweet-alert.min.js"></script>
+      <script type="text/javascript" src = "js/bootstrap-select.min.js"></script>
+      <script type="text/javascript" src="DataTables/datatables.js"></script>
+    <!-- jcueros mios -->
+      <script type="text/javascript" src="jWS/menu.js"> </script>
+      <script type="text/javascript" src="js/animations.js"> </script>
+
+      <script type="text/javascript" src="jWS/funciones.js"> </script>
+      <script type="text/javascript" src="jWS/usuarios.js"> </script>
+
+</body>
+
+</html>

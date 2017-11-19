@@ -1,0 +1,107 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<title> UNILOCKER - Reportes</title>
+	<link rel="icon" href="img/iconoPag.png">
+
+	<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">	
+
+	<!--Librerias CSS-->
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="css/icon.css">
+    <link rel="stylesheet" type="text/css" href="css/animate.css">
+    <link rel="stylesheet" type="text/css" href="css/sweet-alert.css">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap-select.min.css">
+    <link rel="stylesheet" type="text/css" href="DataTables/datatables.css"/>
+
+	<!--Estilos mios-->	
+	<link href="css/style.css" rel="stylesheet">
+
+</head>
+<body>
+  <div class="container-fluid ">
+
+    <div class="row menu atras-nav" id="ElMenu" data-include = "menu"></div> 
+    
+    <div class="row contenido">
+
+      <div class="container">    
+
+          <div class="rentar">
+            <div class="title-blue">Reportes</div>
+
+            <div class="cnt-frm cnt-body-blanco">           
+              
+              <div class="frm-all">
+
+                <div class="text-center datos_filtrar">
+                  <div class="text-left frm-data txt_filtro">
+                    <p class="typ-paragraph" id="msg_renovar_user">Haz filtros para ver los lockers ocupados, pendientes, y desocupados.</p>
+                  </div>
+
+                  <div class="text-right filtros">
+                    <span class="spn_filtro_reporte">Filtrar por:</span>
+                    <div class="select_filtro">
+                      <select class="selectpicker input-selectpicker" data-live-search="true" id="Busqueda_tipo">
+                        <option value="0">Todos</option>
+                        <option value="1">Ocupado</option>
+                        <option value="2">Pendiente</option>
+                        <option value="3">Desocupado</option>
+                      </select>
+                    </div>                 
+                  </div>
+                </div>                
+
+                <div class="">
+                  <table id="tbl_Reportes" class="display" cellspacing="0" width="100%">
+                      <thead>
+                          <tr>                              
+                              <th> <i class="archive icon"></i> Locker</th>
+                              <th> <i class="money icon"></i>Precio</th>
+                              <th> <i class="info circle icon"></i> Estatus</th>
+                              <th> <i class="user icon"></i> Usuario</th>
+                          </tr>
+                      </thead>
+                      <tbody>
+                      </tbody>
+                  </table>                  
+                </div>
+
+              </div>
+                
+            </div>
+
+          </div>
+
+      </div>
+
+    </div>
+
+    <div class="row copyright" id="copyright">
+      <div class="container"> 
+        <span>Copyright © 2017 UNILOCKER ®. All rights reserved.</span>
+      </div>
+    </div>
+
+  </div>
+    <!-- Librerias JS -->
+      <script type="text/javascript" src = "js/jquery-3.2.1.min.js"></script>
+      <script type="text/javascript" src = "js/bootstrap.js"></script>
+      <script type="text/javascript" src = "js/jquery.waypoints.min.js"></script>
+      <script type="text/javascript" src = "js/noframework.waypoints.min.js"></script>
+      <script type="text/javascript" src = "js/sweet-alert.min.js"></script>
+      <script type="text/javascript" src = "js/bootstrap-select.min.js"></script>
+      <script type="text/javascript" src="DataTables/datatables.js"></script>
+    <!-- jcueros mios -->
+      <script type="text/javascript" src="jWS/menu.js"> </script>
+      <script type="text/javascript" src="js/animations.js"> </script>
+
+      <script type="text/javascript" src="jWS/funciones.js"> </script>
+      <script type="text/javascript" src="jWS/reportes.js"> </script>
+
+</body>
+
+</html>

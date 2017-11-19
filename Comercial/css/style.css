@@ -1,0 +1,269 @@
+	@font-face 
+	{
+	   font-family: "Champagne & Limousines";
+	   src: url("../fonts/contenido/Champagne & Limousines.ttf");
+	}
+	@font-face 
+	{
+	   font-family: "Montserrat-Regular";
+	   src: url("../fonts/contenido/Montserrat-Regular.ttf");
+	}
+/*--------GENERAL-----*/
+body{
+	background-color: #f0eff4;
+}
+
+/*--------NAVBAR----------*/
+	nav{
+		font-family: "Montserrat-Regular";
+		background-color: #fff;
+	}
+	.listita ul{
+		padding-top: 1%;
+	}
+	.logotipo{
+		height: 100%;
+	}
+	.logoNav{
+		height: 5vh;
+		min-height: 35px;
+	}
+	.nav > li > a{
+		color: #000;
+		font-size: 3vh;
+	}
+/*--------SLIDER----------*/
+	.slider{
+		margin-top: 5vh;
+		height: 95vh;
+		background-repeat: no-repeat;
+		background-size: cover;
+		background-position: 50% 50%;
+		background-image: url("../img/slider.jpg");
+		position: relative;
+	}
+	.mensaje{
+	    position: absolute;
+	    bottom: 30%;
+	    right: 10%;
+	    width: 30%;
+	}
+	.mensaje h2{
+		font-family: "Montserrat-Regular";
+		font-weight: bold;
+		color: #fff;
+	}
+/*--------NOSOTROS--------*/
+	.nosotros{
+		padding-top: 15vh;
+		margin-bottom: 30vh;
+		height: 70vh;
+	}
+	.nosotros h1{
+		font-family: "Montserrat-Regular";
+		font-weight: bold;
+	}
+	.nosotros img{
+		width: 40%;
+	}
+	.nosotros p{
+		font-family: "Champagne & Limousines";
+		font-weight: bold;
+		font-size: 3vh;
+		max-width: 35vw;
+		margin: 0 auto;
+	}
+	.iconitos{
+		margin: 3%;
+	}
+	.ico img{
+		margin: 0 auto;
+		width:230px;
+	}
+	.nosotros h3{
+		font-family: "Champagne & Limousines";
+		font-weight: bold;
+		font-size: 4vh;
+	}
+/*--------RENTAR----------*/
+	.rentar{
+		padding-top: 15vh;
+		margin-bottom: 30vh;
+		height: 70vh;
+	}
+	.rentar h1{
+		font-family: "Montserrat-Regular";
+		font-weight: bold;
+	}
+	.rentar img{
+		width: 40%;
+	}
+	.infoRen{
+		margin: 5%;
+	}
+	.infoRen p{
+		font-family: "Champagne & Limousines";
+		font-weight: bold;
+		font-size: 5vh;
+		max-width: 35vw;
+		margin:5% auto;
+	}
+	.infoRen .btn{
+		background-color: #4e4caa;
+		border-radius: 25px;
+		font-family: "Montserrat-Regular";
+		font-size: 4vh;
+		color: #fff;
+		padding: 10px 15px;
+	}
+	.infoRen .btn:hover{
+		background-color: #46acc2;
+	}
+	.infoRen img{
+		width: 50%;
+		margin: 5% auto;
+	}
+/*--------CONTACTO--------*/
+	.contacto{
+		padding-top: 15vh;
+		margin-bottom: 15vh;
+		height: 75vh;
+	}
+	.contacto h1{
+		font-family: "Montserrat-Regular";
+		font-weight: bold;
+	}
+	.contacto img{
+		width: 40%;
+	}
+	.contacto p{
+		font-family: "Champagne & Limousines";
+		font-weight: bold;
+		font-size: 3vh;
+		max-width: 35vw;
+		margin: 0 auto;
+	}
+	.contacto .formulario{
+		max-width: 80%;
+		margin: 5% auto;
+	}
+	.contacto label{
+		font-family: "Champagne & Limousines";
+		font-size: x-large;
+	}
+	.contacto input{
+		font-family: "Champagne & Limousines";
+		font-size: x-large;
+		padding: 1%;
+   		height: inherit;
+
+   		border:none;
+   		border-radius: 15px;
+
+   		-webkit-box-shadow: 0px 10px 55px -10px rgba(0,0,0,0.3);
+		-moz-box-shadow: 0px 10px 55px -10px rgba(0,0,0,0.3);
+		box-shadow: 0px 10px 55px -10px rgba(0,0,0,0.3);
+	}
+	.contacto textarea{
+		font-family: "Champagne & Limousines";
+		font-size: x-large;
+		max-width:100%;
+		min-width: 100%;
+		height:100%;
+		
+		border:none;
+		border-radius: 15px;
+
+		box-sizing: border-box;         /* For IE and modern versions of Chrome */
+		-moz-box-sizing: border-box;    /* For Firefox                          */
+		-webkit-box-sizing: border-box; /* For Safari  */
+
+		-webkit-box-shadow: 0px 10px 55px -10px rgba(0,0,0,0.3);
+		-moz-box-shadow: 0px 10px 55px -10px rgba(0,0,0,0.3);
+		box-shadow: 0px 10px 55px -10px rgba(0,0,0,0.3);                      
+	}
+	.contacto button{
+		background-color: #4e4caa;
+		border-radius: 25px;
+		font-family: "Montserrat-Regular";
+		font-size: 4vh;
+		color: #fff;
+		padding: 10px 15px;
+		margin-top: 5%;
+	}
+	.contacto .btn:hover{
+		color: #fff;
+		background-color: #46acc2;
+	}
+/*--------COPYRIGHT-------*/
+	.copyright{
+		background-color: #84828F;
+		height:5vh;
+	}
+	.copyright span{
+		font-family: "Montserrat-Regular";
+		font-size: large;
+		color: #fff;
+
+	}
+
+/*---------------RESPONSIVE----------------------*/
+	@media (max-width: 1024px){ /*-----------------IPAD*/
+
+	}
+
+	@media   (max-width: 760px){ /*-----------------CELULAR*/
+		/*slider*/
+		.mensaje{
+		    bottom: 30%;
+		    left: 5%;
+		    width: 90%;
+		}
+		.mensaje h2{
+			font-size: 30px;
+		}
+		/*nosotros*/
+		.nosotros p {
+		    font-size: 3vh;
+		    max-width: 100vw;
+		}
+		.nosotros h3 {
+		    font-size: 3vh;
+		}
+		.ico img {
+		    width: 185px;
+		}
+		/*rentar*/
+		.infoRen p{
+			font-size: 3vh;
+		    max-width: 100vw;
+		    margin: 10% auto;
+		}
+		.infoRen .btn {
+		    border-radius: 25px;
+		    font-size: 3vh;
+		    padding: 10px 15px;
+		}
+		/*contacto*/
+		.contacto {
+		    padding-top: 15vh;
+		    margin-bottom: 25vh;
+		    height: 100vh;
+		}
+		.contacto p {
+		    font-size: 3vh;
+		    max-width: 100vw;
+		    margin: 0 auto;
+		}
+
+		.contacto input{
+			border-radius: 10px;
+			-webkit-box-shadow: 0px 3px 50px -10px rgba(0,0,0,0.3);
+			-moz-box-shadow:0px 3px 50px -10px rgba(0,0,0,0.3);
+			box-shadow: 0px 3px 50px -10px rgba(0,0,0,0.3);
+		}
+		/*foot*/
+		.copyright {
+		    height: 10vh;
+		}
+	}

@@ -1,0 +1,82 @@
+  <nav class="navbar nb-color-claro navbar-fixed-top" role="navigation">
+        <div class = "container">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle nb-btn-mini" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+              <span class="sr-only">More</span>
+              <i class="content icon" style="font-size: 30px;"></i>
+            </button>
+            <a class="navbar-brand logotipo" href="home.html" id="goHome">
+              <img src="img/unilocker2.png" class = "logoNav">
+            </a>
+          </div>
+          <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <!--<form class="navbar-form navbar-left">
+              <div class="input-group">
+
+                <input type="text" class="form-control input-bus-Form" id="BuscarInp" placeholder="Buscar...">
+
+                <div class="input-group-btn">
+                  <button class="btn btn-Bus btn-claro" type="submit">
+                    <i class="search icon"></i>
+                  </button>
+                </div>
+
+              </div>
+            </form>-->
+
+            <ul class="nav navbar-nav navbar-right menu-nav">
+              <li class="nav-perfil">
+                <a href="perfil.html" class = "nb-link" id="verPerfil">
+                  <img src="img/perfil/perfil1.jpg" class="img-profile" id="imgPerfilMenu">
+                  <span class="spn-name-profile" id="nombrePerfilMenu"></span>
+                </a>
+              </li>
+
+              <li class="nav-icono">
+                <a href="#" class = "nb-link">
+                  <i class="alarm icon"></i>
+                </a>
+              </li>
+
+              <li class="nav-icono dropdown">
+                <a href="config.html" class = "nb-link">
+                  <i class="setting icon"></i>
+                </a>
+              </li> 
+
+              <li class="nav-icono dropdown">
+                <a href="#" class="nb-link" id="CerrarSesion">
+                    <i class="sign out icon"></i>
+                </a>
+              </li> 
+
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        var jsonSess = sessionStorage.getItem("UserSession");
+        var objSess = JSON.parse(jsonSess);
+
+        console.log(objSess);
+        $('#nombrePerfilMenu').append(objSess.nombres);
+
+
+        if (objSess.idtipo != 1) {
+            $('#goHome').attr('href','home.html');
+        }
+        else {
+            $('#goHome').attr('href', 'admin.html');
+        }
+
+
+        $('#CerrarSesion').on('click', function () {
+            sessionStorage.removeItem("UserSession");
+            window.location.href = "index.html";
+        });
+
+    });
+</script>

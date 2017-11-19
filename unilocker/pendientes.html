@@ -1,0 +1,121 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<title> UNILOCKER - Pendiente</title>
+	<link rel="icon" href="img/iconoPag.png">
+
+	<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">	
+
+	<!--Librerias CSS-->
+
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="css/icon.css">
+    <link rel="stylesheet" type="text/css" href="css/animate.css">
+    <link rel="stylesheet" type="text/css" href="css/sweet-alert.css">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap-select.min.css">
+    <link rel="stylesheet" type="text/css" href="DataTables/datatables.css"/>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/izimodal/1.5.1/css/iziModal.min.css"/>
+
+	<!--Estilos mios-->	
+	<link href="css/style.css" rel="stylesheet">
+
+</head>
+<body>
+
+    <div id="Modal_pendientes" class="elem-hide typ-paragraph modales">
+        <p class="typ-modal-info">Si el estudiante ya pagó acepta el locker, de no ser así y el tiempo de espera ya pasó, libéralo.</p>
+
+        <div class="col-sm-6">
+            <h3>Folio: #<label id="folio_pen" folio=""></label></h3>
+            <h3>Locker: <label id="locker_pen" locker=""></label></h3>
+            <h3>Precio: $<label id="precio_pen"></label></h3>
+            <h3>Usuario: <label id="usuario_pen" idU=""></label></h3>
+            <h3>Tipo: <label id="tipo_pen" tipo=""></label></h3>
+        </div>
+        <div class="col-sm-6">
+            <div class="frm-input" id="rentarCom">
+                <label for="coment_rent" class="lbl-input">Comentarios</label>
+                <textarea class="form-control" rows="3" placeholder="Escriba su mensaje aquí. (opcional)" id="comment_aceptar"></textarea>
+            </div>
+        </div>
+        <div class="text-center">
+            <div class="btn btn-aceptar" id="Pagado" idRegistro=""> Pagado</div>
+            <div class="btn btn-liberar" id="Liberar" idRegistro=""> Liberar</div>
+        </div>
+     </div>
+
+    <div id="SeRento typ-paragraph modales" ></div>
+
+  <div class="container-fluid ">
+
+    <div class="row menu atras-nav" id="ElMenu" data-include = "menu"></div>   
+    
+    <div class="row contenido">
+
+      <div class="container">    
+
+          <div class="rentar">
+            <div class="title-blue">Pendientes</div>
+
+            <div class="cnt-frm cnt-body-blanco">           
+              
+              <div class="frm-all">
+                <div class="text-left frm-data">
+                    <p class="typ-paragraph" id="msg_renovar_user">Lockers pendientes por confirmar.</p>
+                </div>
+
+                <div class="">
+                  <table id="tbl_Pendientes" class="display" cellspacing="0" width="100%">
+                      <thead>
+                          <tr class="text-center">
+                              <th><i class="ticket icon"></i> Folio</th>
+                              <th><i class="calendar icon"></i> Fecha</th>
+                              <th><i class="info circle icon"></i> Concepto</th>
+                              <th><i class="archive icon"></i> Locker</th>
+                              <th><i class="money icon"></i> Precio</th>
+                              <th><i class="user icon"></i> Usuario</th>
+                              <th>Aceptar/Denegar</th>
+                          </tr>
+                      </thead>
+                      <tbody>
+                      </tbody>
+                  </table>                  
+                </div>
+
+              </div>
+                
+            </div>
+
+          </div>
+
+      </div>
+
+    </div>
+
+    <div class="row copyright" id="copyright">
+      <div class="container"> 
+        <span>Copyright © 2017 UNILOCKER ®. All rights reserved.</span>
+      </div>
+    </div>
+
+  </div>
+    <!-- Librerias JS -->
+      <script type="text/javascript" src = "js/jquery-3.2.1.min.js"></script>
+      <script type="text/javascript" src = "js/bootstrap.js"></script>
+      <script type="text/javascript" src = "js/jquery.waypoints.min.js"></script>
+      <script type="text/javascript" src = "js/noframework.waypoints.min.js"></script>
+      <script type="text/javascript" src = "js/sweet-alert.min.js"></script>
+      <script type="text/javascript" src = "js/bootstrap-select.min.js"></script>
+      <script type="text/javascript" src = "DataTables/datatables.min.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/izimodal/1.5.1/js/iziModal.min.js"></script> 
+    <!-- jcueros mios -->
+      <script type="text/javascript" src="jWS/menu.js"> </script>
+      <script type="text/javascript" src="js/animations.js"> </script>
+
+      <script type="text/javascript" src="jWS/funciones.js"> </script>
+      <script type="text/javascript" src="jWS/pendientes.js"> </script>
+
+</body>
+
+</html>

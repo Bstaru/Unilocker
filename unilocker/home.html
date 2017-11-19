@@ -1,0 +1,177 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<title> UNILOCKER </title>
+	<link rel="icon" href="img/iconoPag.png">
+
+	<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">	
+
+	<!--Librerias-->
+
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="css/icon.css">
+    <link rel="stylesheet" type="text/css" href="css/animate.css">
+    <link rel="stylesheet" type="text/css" href="css/sweet-alert.css">
+
+	<script type="text/javascript" src = "js/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src = "js/bootstrap.js"></script>
+    <script type="text/javascript" src = "js/jquery.waypoints.min.js"></script>
+    <script type="text/javascript" src = "js/noframework.waypoints.min.js"></script>
+    <script type="text/javascript" src = "js/sweet-alert.min.js"></script>
+
+	<!--Estilos-->	
+	<link href="css/style.css" rel="stylesheet">
+
+</head>
+<body>
+  <div class="container-fluid ">
+
+    <!-- walkthrough -->
+      <div class="cortina-negra elem-hide"></div>
+
+      <div class="cnt-cuadro-info adelante-info comenzar-1 elem-hide animated">
+          <h3 class="typ-titles">¿Listo?</h3>
+          <p class="typ-paragraph">...Empecemos</p>
+          <div class="btn btn-ok-cuadro" id="sig-1">Ok</div>
+          <div class="btn btn-ok-cuadro" id="noquiero">No quiero</div>
+      </div>
+      <div class="cnt-cuadro-info adelante-info comenzar-9 elem-hide animated">
+            <h3 class="typ-titles">Eso es todo</h3>
+            <p class="typ-paragraph">¡Ahora comienza a explorar!</p>
+            <div class="btn btn-ok-cuadro" id="terminar">Terminar</div>
+            <div class="tacha"><i class="remove icon"></i></div>
+      </div>
+      <div class="cnt-cuadro-info adelante-info comenzar-2 elem-hide animated">
+          <h3 class="typ-titles"><i class="pointing up icon"></i><br />Menú</h3>
+          <p class="typ-paragraph">
+              En está sección esta tu perfil y configuración. <br />
+              <small>Por si algo escribiste mal ...</small>
+          </p>
+          <div class="btn btn-ok-cuadro" id="sig-2">Siguiente</div>
+          <div class="tacha"><i class="remove icon"></i></div>
+      </div>
+      <div class="cnt-cuadro-info adelante-info comenzar-3 elem-hide animated">
+          <h3 class="typ-titles"><i class="pointing left icon"></i><br />Locker</h3>
+          <p class="typ-paragraph">
+              Aquí aparecerá el locker que haz rentado. <br />
+              <small>Obvio no hay nada por primera vez...</small>
+          </p>
+          <div class="btn btn-ok-cuadro" id="sig-3">Siguiente</div>
+          <div class="tacha"><i class="remove icon"></i></div>
+      </div>
+      <div class="cnt-cuadro-info adelante-info comenzar-5 elem-hide animated">
+          <h3 class="typ-titles"><i class="pointing right icon"></i><br />Rentar</h3>
+          <p class="typ-paragraph">
+              Para un nuevo locker.
+          </p>
+          <div class="btn btn-ok-cuadro" id="sig-5">Siguiente</div>
+          <div class="tacha"><i class="remove icon"></i></div>
+      </div>
+      <div class="cnt-cuadro-info adelante-info comenzar-6 elem-hide animated">
+          <h3 class="typ-titles"><i class="pointing left icon"></i><br />Renovar</h3>
+          <p class="typ-paragraph">
+              ¿Ya tenias locker? <br />Entonces renuevalo.
+          </p>
+          <div class="btn btn-ok-cuadro" id="sig-6">Siguiente</div>
+          <div class="tacha"><i class="remove icon"></i></div>
+      </div>
+      <div class="cnt-cuadro-info adelante-info comenzar-7 elem-hide animated">
+          <h3 class="typ-titles"><i class="pointing right icon"></i><br />Cancelar</h3>
+          <p class="typ-paragraph">
+              Adiós a tu locker ...
+          </p>
+          <div class="btn btn-ok-cuadro" id="sig-7">Siguiente</div>
+          <div class="tacha"><i class="remove icon"></i></div>
+      </div>
+      <div class="cnt-cuadro-info adelante-info comenzar-8 elem-hide animated">
+          <h3 class="typ-titles"><i class="pointing left icon"></i><br />Lugares</h3>
+          <p class="typ-paragraph">
+              ¿No sabes en dónde está? <br />Encuéntralo con el mapa.
+          </p>
+          <div class="btn btn-ok-cuadro" id="sig-8">Siguiente</div>
+          <div class="tacha"><i class="remove icon"></i></div>
+      </div>
+      <div class="cnt-cuadro-info adelante-info comenzar-4 elem-hide animated">
+          <h3 class="typ-titles"><i class="pointing up icon"></i><br />Sección Rentar</h3>
+          <p class="typ-paragraph">
+              En esta sección estarán las opciones para poder rentar tu locker.
+          </p>
+          <div class="btn btn-ok-cuadro" id="sig-4">Siguiente</div>
+          <div class="tacha"><i class="remove icon"></i></div>
+      </div>
+
+    <div class="row menu atras-nav" id="ElMenu" data-include = "menu"></div> 
+    
+    <div class="row contenido cont-rel atras-info">
+
+      <div class="container atras-info">
+
+          <!-- mi locker -->
+        <div class="col-sm-3" >
+          <div class="mi-locker">
+            <div class="title-blue">Mi locker</div>
+            <div class="img-locker Locker-Si">
+                <span class="spn-milocker" id="numLocker">5648</span>
+            </div>
+          </div>
+        </div>
+      
+          <!-- opciones -->
+        <div class="col-sm-9">       
+
+          <div class="rentar">
+            <div class="title-blue">Rentar</div>
+            <div class="cnt-body cnt-body-azul">
+              <div class="opcion opcion-blanco animated">
+                <a href="rentar.html">
+                  <i class="plus icon"></i>
+                  <span>Rentar un locker</span>
+                </a>                
+              </div>
+              <div class="opcion opcion-blanco animated">
+                <a href="renovar.html">
+                  <i class="refresh icon"></i>
+                  <span>Renovar mi locker</span>
+                </a> 
+              </div>
+              <div class="opcion opcion-blanco animated">
+                <a href="cancelar.html">
+                  <i class="remove icon"></i>
+                  <span>Cancelar mi locker</span>
+                </a> 
+              </div>
+              <!--<div class="opcion opcion-blanco animated">
+                <a href="mapa.html">
+                  <i class="map icon"></i>
+                  <span>Ver lugares</span>
+                </a> 
+              </div>-->
+
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-sm-12 informacion">
+          <h3>Facultades asociadas: </h3>
+          <img src="img/facus/FCFM.png" class="img-responsive">
+          <img src="img/facus/FIME.png" class="img-responsive">
+        </div>
+      </div>
+    </div>
+
+    <div class="row copyright" id="copyright">
+      <div class="container"> 
+        <span>Copyright © 2017 UNILOCKER ®. All rights reserved.</span>
+      </div>
+    </div>
+  </div>
+
+    <!-- jcueros -->
+    <script type="text/javascript" src="jWS/funciones.js"> </script>
+    <script type="text/javascript" src="jWS/menu.js"> </script>
+    <script type="text/javascript" src="js/animations.js"> </script>
+    <script type="text/javascript" src="jWS/home.js"> </script>
+</body>
+
+</html>

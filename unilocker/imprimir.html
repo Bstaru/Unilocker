@@ -1,0 +1,125 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<title> UNILOCKER - Imprimir</title>
+	<link rel="icon" href="img/iconoPag.png">
+
+	<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">	
+
+	<!--Librerias CSS-->
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="css/icon.css">
+    <link rel="stylesheet" type="text/css" href="css/animate.css">
+    <link rel="stylesheet" type="text/css" href="css/sweet-alert.css">
+    <link rel="stylesheet" href="css/bootstrap-select.min.css">
+
+	<!--Estilos mios-->	
+	<link href="css/style.css" rel="stylesheet">
+
+</head>
+<body>
+  <div class="container-fluid ">
+
+    <div class="row menu atras-nav" id="ElMenu" data-include = "menu"></div> 
+    
+    <div class="row contenido">
+
+      <div class="container">
+
+          <!-- opciones -->     
+
+          <div class="rentar">
+            <div class="title-blue">Imprimir ticket</div>
+
+            <div class="cnt-frm cnt-body-blanco">           
+              
+              <div class="frm-left">
+                <div class="text-left frm-data">
+                  <p class="typ-paragraph" id="msg_rentar_user">
+                    Comprueba tus datos e imprime este ticket. <br>
+                    Una vez con tu ticket sólo tienes que ir a Sociedad de alumnos de tu facultad a realizar tu pago. <br>
+                    <small>*Tienes sólo 48 horas de apartado, de pasar esas horas tu locker será liberado nuevamente.</small>
+                  </p>
+
+                   <p class="elem-hide typ-paragraph" id="msg_rentar_user">
+                     Imprime el ticket comprobante para el alumno.
+                   </p>
+                </div>
+
+                <div class="frm-data text-right">
+                  <!-- <div class="btn btn-Form">Imprimir</div> -->
+                  <div class="btn btn-Form">Volver</div>
+                  <div class="btn btn-Form" id="SavePDF">Guardar PDF</div>
+
+                </div>
+
+              </div>
+
+              <div class="frm-right">
+                <div class="cnt-formato-ticket" id="toPDF">
+
+                  <div class="title-ticket text-center">
+                    <!-- <div class="logo-ticket img-center img-ticket">
+                      <img src="img/unilocker2.png" class="img-responsive">
+                    </div> -->
+                    <h3 class="tipoD"></h3>
+                  </div>        
+
+                  <div class="body-ticket">
+                    <div id="bodyImp">
+                    </div>                    
+                    <br>
+                    <div class="Instrucciones">
+                      <small>
+                        <ol>
+                          <li>Imprime éste documento</li>
+                          <li>Ve a sociedad de alumnos, ahí pagarás y actualizarán el sistema</li>
+                          <li>Y después .... ¡Tu locker ya es tuyo! Gracias por usar nuestros servicios</li>
+                        </ol>
+                      </small>
+                    </div>
+                  </div>
+
+                </div> 
+                <div id="editor"></div>               
+              </div>
+
+            
+             
+            </div>
+
+          </div>
+
+      </div>
+
+    </div>
+
+    <div class="row copyright" id="copyright">
+      <div class="container"> 
+        <span>Copyright © 2017 UNILOCKER ®. All rights reserved.</span>
+      </div>
+    </div>
+
+  </div>
+    <!-- Librerias JS -->
+      <script type="text/javascript" src = "js/jquery-3.2.1.min.js"></script>
+      <script type="text/javascript" src = "js/bootstrap.js"></script>
+      <script type="text/javascript" src = "js/jquery.waypoints.min.js"></script>
+      <script type="text/javascript" src = "js/noframework.waypoints.min.js"></script>
+      <script type="text/javascript" src = "js/sweet-alert.min.js"></script>
+      <script type="text/javascript" src = "js/bootstrap-select.min.js"></script>
+
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.5/jspdf.min.js"></script>
+       <script type="text/javascript" src="js/html2canvas.min.js"></script>
+    <!-- jcueros mios -->
+      <script type="text/javascript" src="jWS/funciones.js"> </script>
+      <script type="text/javascript" src="jWS/menu.js"> </script>
+      <script type="text/javascript" src="js/animations.js"> </script>
+      <script type="text/javascript" src="jWS/imprimir.js"> </script>
+      <script type="text/javascript" src="js/toPDF.js"> </script>
+</body>
+
+</html>
