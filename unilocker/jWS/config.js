@@ -3,6 +3,38 @@
     var MTDS = new METODOS();  
     var fecha = MTDS.TODAY();
 
+    var btnOk = $("#msgok").iziModal({
+        title: "¡Perfecto!",
+        subtitle: 'Tus datos han sido actualizados',
+        iconText: '<i class="checkmark icon"></i>',
+        headerColor: '#4cae4c',
+        width: 600,
+        timeout: 5000,
+        timeoutProgressbar: true,
+        transitionIn: 'fadeInDown',
+        transitionOut: 'fadeOutDown',
+        pauseOnHover: true,
+        onClosing: function(){
+            location.reload();
+        },
+    });
+
+    var btnErr = $("#msgerr").iziModal({
+        title: "¡Error!",
+        subtitle: 'Lo sentimos, tuvimos un errror. Por favor intenta más tarde',
+        iconText: '<i class="remove icon"></i>',
+        headerColor: 'rgb(189, 91, 91)',
+        width: 600,
+        timeout: 5000,
+        timeoutProgressbar: true,
+        transitionIn: 'fadeInDown',
+        transitionOut: 'fadeOutDown',
+        pauseOnHover: true,
+        onClosing: function(){
+            location.reload();
+        },
+    });
+
     var UserSess = function () {
         this.id = "";
         this.nombres = "";
@@ -31,16 +63,15 @@
         sessionStorage.setItem('UserSession', JSON.stringify(user));
     }
     function DatosInputs() {
-    var objSess = JSON.parse(sessionStorage.getItem("UserSession"));
-    $('#userNN').attr('value', objSess.id);
-    $('#GuardarData_1').attr('idUser', objSess.id);
-    $('#GuardarData_2').attr('idUser2', objSess.id)
-    $('#nombre_edit').val(objSess.nombres);
-    $('#apellidos_edit').val(objSess.apellidos);
-    $('#mat_edit').val(objSess.matricula);
-    $('#correo_edit').val(objSess.correo);
+    
+        $('#userNN').attr('value', objSess.id);
+        $('#GuardarData_1').attr('iduser', objSess.id);
+        $('#GuardarData_2').attr('iduser2', objSess.id)
+        $('#nombre_edit').val(objSess.nombres);
+        $('#apellidos_edit').val(objSess.apellidos);
+        $('#mat_edit').val(objSess.matricula);
+        $('#correo_edit').val(objSess.correo);
     }
-
     window.u_Usuario = function (Idu, Nombres, Apellidos, Matricula, Correo, Foto) {
 
         var param = {action:"upUsuario",
@@ -53,16 +84,15 @@
             url: domin,
             data:param,
 
-            success: function (data) {
-                swal("¡Bien!", "Se actualizaron tus datos.", "success", { button: "Ok" });
-                //window.location.href = "home.html";
+            success: function (response) {
+                btnOk.iziModal('open');
             },
 
-            error: function (e) {
+            error: function (e) {                
                 console.log(e);
+                btnErr.iziModal('open');
             }
         });
-
     };
     window.u_Contra = function (Idu, Contra) {
 
@@ -74,19 +104,18 @@
             data:param,
 
             success: function (response) {
-                swal("¡Bien!", "Se actualizaró tu contraseña.", "success", { button: "Ok" });
-                //window.location.href = "home.html";
+                btnOk.iziModal('open');
             },
 
             error: function (e) {
                 console.log(e);
+                btnErr.iziModal('open');               
             }
         });
-
     };
     window.s_usuarioUpdate = function (idu) {
 
-        var param = {action:"selSeccion", idu: idu };
+        var param = {action:"selUsuarioUp", id: idu };
 
         $.ajax({
             type: "POST",
@@ -95,11 +124,10 @@
             dataType: "json",
 
             success: function (response) {
-                $.each(response, function (indx, obj) {
-                    sessionStorage.removeItem("UserSession");
-                    GuardaSess(obj.id,obj.Nombres, obj.Apellidos,obj.Matricula,obj.idTipo,obj.Correo,obj.Contra,obj.Foto,obj.Locker,obj.Activo);
+                $.each(response, function (indx, obj) {                  
+                    GuardaSess(obj.id,obj.Nombres, obj.Apellidos,obj.Matricula,
+                        obj.idTipo,obj.Correo,obj.Contra,obj.Foto,obj.Locker);
                 });
-                DatosInputs();
             },
 
             error: function (e) {
@@ -109,41 +137,22 @@
 
     };
 
-    //window.UploadImage = function (img, UserID) {
-
-    //    var param = { img: img, UserID: UserID };
-
-    //    $.ajax({
-    //        type: "POST",
-    //        url: domin + "/s_usuarioUpdate",
-    //        data: JSON.stringify(param),
-    //        contentType: "application/json; charset=utf-8",
-    //        dataType: "json",
-
-    //        success: function (data) {
-    //            console.log('imagen guardada');
-    //        },
-
-    //        error: function (e) {
-    //            console.log(e);
-    //        }
-    //    });
-
-    //};
-    //$('#GuardarData_1').on('click', function () {
-    //    var foto = $('#filePhoto').val();
-    //    UploadImage(foto);
-    //});
-
     DatosInputs();
 
     $('#GuardarData_1').on('click', function () {
 
         var foto = $('#filePhoto').val();
 
-        u_Usuario($('#GuardarData_1').attr('idUser'), $('#nombre_edit').val(), $('#apellidos_edit').val(),
-            $('#mat_edit').val(), $('#correo_edit').val(), foto);
-        s_usuarioUpdate($('#GuardarData_1').attr('idUser'));
+        u_Usuario(  $('#GuardarData_1').attr('idUser'), 
+                    $('#nombre_edit').val(),
+                    $('#apellidos_edit').val(),
+                    $('#mat_edit').val(), 
+                    $('#correo_edit').val(), 
+                    foto);
+
+        //sessionStorage.removeItem("UserSession"); 
+        s_usuarioUpdate($('#GuardarData_1').attr('iduser'));
+        DatosInputs();
     });
 
     $('#GuardarData_2').on('click', function () {
@@ -159,8 +168,7 @@
         }
         else {
             swal("¡Espera!", "Las contraseñas no son iguales.", "warning", { button: "Ok" });
-        }
-
+        }    
        
     });
 });
