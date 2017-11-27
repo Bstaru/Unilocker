@@ -1,6 +1,6 @@
 ﻿$(document).ready(function () {
 
-    var MTDS = new METODOS();
+    //var MTDS = new METODOS();
 
     var ResumenData;
 
@@ -104,6 +104,7 @@
 
             error: function (e) {
                 console.log(e);
+                alertError.iziModal('open'); 
             }
         });
 

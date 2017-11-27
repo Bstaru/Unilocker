@@ -12,19 +12,22 @@
     <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="css/icon.css">
     <link rel="stylesheet" type="text/css" href="css/animate.css">
-    <link rel="stylesheet" type="text/css" href="css/sweet-alert.css">
+    <link rel="stylesheet" type="text/css" href="css/iziModal.min.css">
 
-	<script type="text/javascript" src = "js/jquery-3.2.1.min.js"></script>
+	  <script type="text/javascript" src = "js/jquery-3.2.1.min.js"></script>
     <script type="text/javascript" src = "js/bootstrap.js"></script>
     <script type="text/javascript" src = "js/jquery.waypoints.min.js"></script>
     <script type="text/javascript" src = "js/noframework.waypoints.min.js"></script>
-    <script type="text/javascript" src = "js/sweet-alert.min.js"></script>
+    <script type="text/javascript" src = "js/iziModal.min.js"></script>
 
 	<!--Estilos-->	
 	<link href="css/style.css" rel="stylesheet">
 
 </head>
 <body>
+
+ <div id="error" class="typ-paragraph"></div>
+
   <div class="container-fluid ">
 
     <!-- walkthrough -->
@@ -104,59 +107,57 @@
     <div class="row menu atras-nav" id="ElMenu" data-include = "menu"></div> 
     
     <div class="row contenido cont-rel atras-info">
-
       <div class="container atras-info">
-
           <!-- mi locker -->
-        <div class="col-sm-3" >
-          <div class="mi-locker">
-            <div class="title-blue">Mi locker</div>
-            <div class="img-locker Locker-Si">
-                <span class="spn-milocker" id="numLocker">5648</span>
+          <div class="col-sm-3" >
+            <div class="mi-locker">
+              <div class="title-blue">Mi locker</div>
+              <div class="img-locker Locker-Si">
+                  <span class="spn-milocker" id="numLocker">5648</span>
+              </div>
             </div>
           </div>
-        </div>
-      
-          <!-- opciones -->
-        <div class="col-sm-9">       
-
-          <div class="rentar">
-            <div class="title-blue">Rentar</div>
-            <div class="cnt-body cnt-body-azul">
-              <div class="opcion opcion-blanco animated">
-                <a href="rentar.html">
-                  <i class="plus icon"></i>
-                  <span>Rentar un locker</span>
-                </a>                
-              </div>
-              <div class="opcion opcion-blanco animated">
-                <a href="renovar.html">
-                  <i class="refresh icon"></i>
-                  <span>Renovar mi locker</span>
-                </a> 
-              </div>
-              <div class="opcion opcion-blanco animated">
-                <a href="cancelar.html">
-                  <i class="remove icon"></i>
-                  <span>Cancelar mi locker</span>
-                </a> 
-              </div>
-              <!--<div class="opcion opcion-blanco animated">
-                <a href="mapa.html">
-                  <i class="map icon"></i>
-                  <span>Ver lugares</span>
-                </a> 
-              </div>-->
-
-            </div>
-          </div>
-        </div>
         
-        <div class="col-sm-12 informacion">
-          <h3>Facultades asociadas: </h3>
-          <img src="img/facus/FCFM.png" class="img-responsive">
-          <img src="img/facus/FIME.png" class="img-responsive">
-        </div>
+            <!-- opciones -->
+          <div class="col-sm-9">       
+
+            <div class="rentar">
+              <div class="title-blue">Rentar</div>
+              <div class="cnt-body cnt-body-azul">
+                <div class="opcion opcion-blanco animated">
+                  <a href="rentar.html">
+                    <i class="plus icon"></i>
+                    <span>Rentar un locker</span>
+                  </a>                
+                </div>
+                <div class="opcion opcion-blanco animated">
+                  <a href="renovar.html">
+                    <i class="refresh icon"></i>
+                    <span>Renovar mi locker</span>
+                  </a> 
+                </div>
+                <div class="opcion opcion-blanco animated">
+                  <a href="cancelar.html">
+                    <i class="remove icon"></i>
+                    <span>Cancelar mi locker</span>
+                  </a> 
+                </div>
+                <!--<div class="opcion opcion-blanco animated">
+                  <a href="mapa.html">
+                    <i class="map icon"></i>
+                    <span>Ver lugares</span>
+                  </a> 
+                </div>-->
+
+              </div>
+            </div>
+          </div>
+          
+          <div class="col-sm-12 informacion">
+            <h3>Facultades asociadas: </h3>
+            <img src="img/facus/FCFM.png" class="img-responsive">
+            <img src="img/facus/FIME.png" class="img-responsive">
+          </div>
       </div>
     </div>
 

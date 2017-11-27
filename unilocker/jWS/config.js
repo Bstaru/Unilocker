@@ -19,51 +19,22 @@
         },
     });
 
-    var btnErr = $("#msgerr").iziModal({
-        title: "¡Error!",
-        subtitle: 'Lo sentimos, tuvimos un errror. Por favor intenta más tarde',
-        iconText: '<i class="remove icon"></i>',
-        headerColor: 'rgb(189, 91, 91)',
+    var msgPss  = $("#msgpss").iziModal({
+        title: "¡Espera!",
+        subtitle: "Las contraseñas no son iguales.",
+        iconText: '<i class="warning sign icon"></i>',
+        headerColor: '#F2BE30',
+        zindex: 2000,
+        radius: 20,
         width: 600,
         timeout: 5000,
         timeoutProgressbar: true,
         transitionIn: 'fadeInDown',
         transitionOut: 'fadeOutDown',
-        pauseOnHover: true,
-        onClosing: function(){
-            location.reload();
-        },
+        pauseOnHover: true
     });
 
-    var UserSess = function () {
-        this.id = "";
-        this.nombres = "";
-        this.apellidos = "";
-        this.matricula = "";
-        this.idtipo = "";
-        this.correo = "";
-        this.contra = "";
-        this.foto = "";
-        this.locker = "";
-    }
-    function GuardaSess(id, nom, ape, mat, tipo, cor, con, foto, locker) {
-
-        var user = new UserSess();
-
-        user.id = id;
-        user.nombres = nom;
-        user.apellidos = ape;
-        user.matricula = mat;
-        user.idtipo = tipo;
-        user.correo = cor;
-        user.contra = con;
-        user.foto = foto;
-        user.locker = locker;
-
-        sessionStorage.setItem('UserSession', JSON.stringify(user));
-    }
-    function DatosInputs() {
-    
+    function DatosInputs() {    
         $('#userNN').attr('value', objSess.id);
         $('#GuardarData_1').attr('iduser', objSess.id);
         $('#GuardarData_2').attr('iduser2', objSess.id)
@@ -125,8 +96,7 @@
 
             success: function (response) {
                 $.each(response, function (indx, obj) {                  
-                    GuardaSess(obj.id,obj.Nombres, obj.Apellidos,obj.Matricula,
-                        obj.idTipo,obj.Correo,obj.Contra,obj.Foto,obj.Locker);
+                    MTDS.SAVE_SESS(obj.id,obj.Nombres, obj.Apellidos,obj.Matricula,obj.idTipo,obj.Correo,obj.Contra,obj.Foto,obj.Locker,obj.Activo);
                 });
             },
 
@@ -167,7 +137,8 @@
             $('#correo_edit_2').val('');
         }
         else {
-            swal("¡Espera!", "Las contraseñas no son iguales.", "warning", { button: "Ok" });
+            //swal("¡Espera!", "Las contraseñas no son iguales.", "warning", { button: "Ok" });
+            msgPss.iziModal('open');
         }    
        
     });

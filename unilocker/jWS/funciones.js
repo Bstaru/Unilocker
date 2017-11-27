@@ -1,7 +1,40 @@
 ﻿
+//direccion servicio
 var domin = 'php/wsUnilocker.php';
-var objSess = JSON.parse(sessionStorage.getItem("UserSession"));
 
+//variables de sesion
+var objSess = JSON.parse(sessionStorage.getItem("UserSession"));
+var UserSess = function () {
+    this.id = "";
+    this.nombres = "";
+    this.apellidos = "";
+    this.matricula = "";
+    this.idtipo = "";
+    this.correo = "";
+    this.contra = "";
+    this.foto = "";
+    this.locker = "";
+    this.activo = "";
+}
+
+//msgs
+var alertError = $("#error").iziModal({
+    title: "¡OH NO!",
+    subtitle: "Lo sentimos hubo un error, intenta de más tarde",
+    iconText: '<i class="warning sign icon"></i>',
+    headerColor: '#F2BE30',
+    zindex: 2000,
+    radius: 20,
+    width: 600,
+    timeout: 5000,
+    timeoutProgressbar: true,
+    transitionIn: 'fadeInDown',
+    transitionOut: 'fadeOutDown',
+    pauseOnHover: true
+});
+
+
+//funciones 
 var METODOS = function () {
 
     this.FULLER_COMBO = function (COMBO_ID, DATA) {
@@ -22,7 +55,6 @@ var METODOS = function () {
 
         $('#' + COMBO_ID).selectpicker('refresh');
     };
-
     this.FULLER_LEFT = function (Char, cantTTL, Cadena) {
         if (Cadena.length < cantTTL) {
             var diff = cantTTL - Cadena.length;
@@ -37,9 +69,9 @@ var METODOS = function () {
         var d = new Date(parseInt(milli));
 
         var SP = '-';
-        /*//console.log(d.getDate());
-        //console.log(d.getMonth());
-        //console.log(d.getYear());*/
+        console.log(d.getDate());
+        console.log(d.getMonth());
+        console.log(d.getYear());
 
         return d.getFullYear() + SP +
         			this.FULLER_LEFT('0', 2, (d.getMonth() + 1) + '') + SP +
@@ -60,7 +92,6 @@ var METODOS = function () {
     this.COMMA = function (x) {
         return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
     };
-
     this.TODAY = function () {
         var today = new Date();
         var dd = today.getDate();
@@ -92,8 +123,7 @@ var METODOS = function () {
         d.setDate(d.getDate() + 4 - (d.getDay() || 7));
         return Math.ceil((((d - new Date(d.getFullYear(), 0, 1)) / 8.64e7) + 1) / 7);
     };
-
-    this.GET_URL_PARAM = function getUrlParameter(sParam) {
+    this.GET_URL_PARAM = function (sParam) {
         var sPageURL = decodeURIComponent(window.location.search.substring(1)),
             sURLVariables = sPageURL.split('&'),
             sParameterName,
@@ -108,4 +138,47 @@ var METODOS = function () {
         }
     };
 
+    this.SAVE_SESS = function (id,nom,ape,mat,tipo,cor,con,foto,locker,act){
+        var user = new UserSess();
+
+        user.id = id;
+        user.nombres = nom;
+        user.apellidos = ape;
+        user.matricula = mat;
+        user.idtipo = tipo;
+        user.correo = cor;
+        user.contra = con;
+        user.foto = foto;
+        user.locker = locker;
+        user.activo = act;
+
+        sessionStorage.setItem('UserSession', JSON.stringify(user));
+    };
+
+    this.CHEK_SESS = function (){
+        if(sessionStorage.length == 0){
+
+            if (window.location.pathname != "/Unilocker/unilocker/index.html") {
+               window.location.href = "index.html";
+               //console.log('no soy index');
+            }
+            else{
+                //console.log('aquí es el index jaja');
+            }
+        }
+    };
+
+    this.LOGIN_SESS = function(tipo){
+        if (tipo != 1) {
+            window.location.href = "home.html";
+        }
+        else {
+            window.location.href = "admin.html";
+        }    
+    }
+
 }
+
+
+var MTDS = new METODOS();
+MTDS.CHEK_SESS();

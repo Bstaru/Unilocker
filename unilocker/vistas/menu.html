@@ -54,29 +54,3 @@
           </div>
         </div>
       </nav>
-
-<script type="text/javascript">
-    $(document).ready(function () {
-
-        var jsonSess = sessionStorage.getItem("UserSession");
-        var objSess = JSON.parse(jsonSess);
-
-        console.log(objSess);
-        $('#nombrePerfilMenu').append(objSess.nombres);
-
-
-        if (objSess.idtipo != 1) {
-            $('#goHome').attr('href','home.html');
-        }
-        else {
-            $('#goHome').attr('href', 'admin.html');
-        }
-
-
-        $('#CerrarSesion').on('click', function () {
-            sessionStorage.removeItem("UserSession");
-            window.location.href = "index.html";
-        });
-
-    });
-</script>

@@ -22,9 +22,9 @@
 
 </head>
 <body>
-
+  <div id="error" class ="typ-paragraph modales" ></div>
   <div id="msgok" class ="typ-paragraph modales" ></div>
-  <div id="msgerr" class ="typ-paragraph modales" ></div>
+  <div id="msgpss" class ="typ-paragraph modales" ></div>
 
   <div class="container-fluid ">
 
@@ -114,11 +114,11 @@
       <script type="text/javascript" src = "DataTables/datatables.min.js"></script>
       <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/izimodal/1.5.1/js/iziModal.min.js"></script> 
     <!-- jcueros mios -->
+      <script type="text/javascript" src="jWS/funciones.js"> </script>
       <script type="text/javascript" src="jWS/menu.js"> </script>
       <script type="text/javascript" src="js/animations.js"> </script>
-
-      <script type="text/javascript" src="jWS/funciones.js"> </script>
       <script type="text/javascript" src="jWS/config.js"> </script>
+
       <script type="text/javascript">
         var imageLoader = document.getElementById('filePhoto');
             imageLoader.addEventListener('change', handleImage, false);
@@ -131,7 +131,6 @@
             }
             reader.readAsDataURL(e.target.files[0]);
         }
-
       </script>
 
 </body>

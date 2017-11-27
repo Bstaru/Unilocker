@@ -1,6 +1,6 @@
 ﻿$(document).ready(function () {
 
-    var MTDS = new METODOS();
+    //var MTDS = new METODOS();
 
     $('#numLocker').empty();
     $('#numLocker').append(objSess.locker);
@@ -18,12 +18,13 @@
             async: true,
 
             success: function (response) {
-                console.log('adios tuto');
-                console.log(response);
+                //console.log('adios tuto');
+                //console.log(response);
             },
 
             error: function (e) {
                 console.log(e);
+                alertError.iziModal('open'); 
             }
         });
 

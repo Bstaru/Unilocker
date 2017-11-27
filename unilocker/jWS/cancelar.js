@@ -6,6 +6,35 @@
     var Lockers;
     var Matriculas;
 
+    var msgCan = $("#msg1").iziModal({
+            title: "¡Listo!",
+            iconText: '<i class="checkmark icon"></i>',
+            headerColor: '#4cae4c',
+            zindex: 2000,
+            radius: 20,
+            padding:20,
+            width: 600,
+            timeout: 5000,
+            timeoutProgressbar: true,
+            transitionIn: 'fadeInDown',
+            transitionOut: 'fadeOutDown',
+            pauseOnHover: true
+        });
+    var msgCanAd = $("#msg2").iziModal({
+            title: "¡Listo!",
+            iconText: '<i class="checkmark icon"></i>',
+            headerColor: '#4cae4c',
+            zindex: 2000,
+            radius: 20,
+            padding:20,
+            width: 600,
+            timeout: 5000,
+            timeoutProgressbar: true,
+            transitionIn: 'fadeInDown',
+            transitionOut: 'fadeOutDown',
+            pauseOnHover: true
+        });  
+
     if (objSess.idtipo == 1) {
         $('#msg_cancelar_user').addClass('elem-hide');
         $('#msg_cancelar_admin').removeClass('elem-hide');
@@ -89,12 +118,14 @@
 
             success: function (response) {
                 console.log(response);
-                swal("¡Listo!", "Tu locker está en proceso de cancelación, te avisaremos cuando esté todo listo.", "success", { button: "Ok" });
+                msgCan.iziModal('open');
+                //swal("¡Listo!", "Tu locker está en proceso de cancelación, te avisaremos cuando esté todo listo.", "success", { button: "Ok" });
                 //window.location.href = "home.html";
             },
 
             error: function (e) {
                 console.log(e);
+                alertError.iziModal('open');
             }
         });
 
@@ -111,12 +142,14 @@
 
             success: function (response) {
                 console.log(response);
-                swal("¡Listo!", "El locker ha sido liberado.", "success", { button: "Ok" });
+                msgCanAd.iziModal('open');
+                //swal("¡Listo!", "El locker ha sido liberado.", "success", { button: "Ok" });
                 //window.location.href = "admin.html";
             },
 
             error: function (e) {
                 console.log(e);
+                alertError.iziModal('open');
             }
         });
 

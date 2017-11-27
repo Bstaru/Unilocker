@@ -8,6 +8,37 @@
     var Matriculas;
     var Mensajes;
 
+
+    var msgYa = $("#msg1").iziModal({
+            title: "¡Espera!",
+            iconText: '<i class="warning sign icon"></i>',
+            headerColor: '#F2BE30',
+            zindex: 2000,
+            radius: 20,
+            padding:20,
+            width: 600,
+            timeout: 5000,
+            timeoutProgressbar: true,
+            transitionIn: 'fadeInDown',
+            transitionOut: 'fadeOutDown',
+            pauseOnHover: true
+        });  
+    var msgYaAd = $("#msg2").iziModal({
+            title: "¡Espera!",
+            iconText: '<i class="warning sign icon"></i>',
+            headerColor: '#F2BE30',
+            zindex: 2000,
+            radius: 20,
+            padding:20,
+            width: 600,
+            timeout: 5000,
+            timeoutProgressbar: true,
+            transitionIn: 'fadeInDown',
+            transitionOut: 'fadeOutDown',
+            pauseOnHover: true
+        });
+
+
     if (objSess.idtipo == 1) {
         $('#msg_rentar_user').addClass('elem-hide');
         $('#msg_rentar_admin').removeClass('elem-hide');
@@ -17,6 +48,7 @@
     else {
         console.log('');
         }
+
 
     window.s_usuario = function () {
 
@@ -127,14 +159,10 @@
             dataType: "json",
 
             success: function (response) {
-                var msg = '';
-
-                $.each(response, function (indx, obj) {
-                    msg = obj.mensaje;            
-                });
+                var msg = JSON.stringify(response[0]);
                 
-                if (msg) {
-                 swal("¡Espera!", msg, "warning", { button: "Ok"});
+                if (msg != '{"Se guardó":"Se guardó"}') {
+                    msgYa.iziModal('open');
                 }
                 else {
                     console.log(msg);
@@ -145,6 +173,7 @@
 
             error: function (e) {
                 console.log(e);
+                alertError.iziModal('open'); 
             }
         });
 
@@ -162,14 +191,10 @@
             dataType: "json",
 
             success: function (response) {
-                var msg = '';
+                var msg = JSON.stringify(response);
 
-                $.each(response, function (indx, obj) {
-                    msg = obj.mensaje;
-                });
-
-                if (msg) {
-                    swal("¡Espera!", msg, "warning", { button: "Ok" });
+                if (msg != '{"Se guardó":"Se guardó"}') {
+                    msgYaAd.iziModal('open');
                 }
                 else {
                     window.location.href = "imprimir.html?Concepto=Rentar&idl=" + idLocker + "&id=" + idUsuario;
@@ -178,6 +203,7 @@
 
             error: function (e) {
                 console.log(e);
+                alertError.iziModal('open'); 
             }
         });
 

@@ -97,7 +97,7 @@
 	            Reporte = response;
 
 	            $.each(response, function (indx, obj) {
-	                var OBJ = [obj.Folio, MTDS.CAST_DATE(obj.Fecha),obj.Concepto, obj.Numero, obj.Precio, obj.Usuario];
+	                var OBJ = [obj.Folio, obj.Fecha ,obj.Concepto, obj.Numero, obj.Precio, obj.Usuario];
 	                arr.push(OBJ);
 	            });
 

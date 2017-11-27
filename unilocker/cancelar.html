@@ -9,20 +9,25 @@
 
 	<!--Librerias CSS-->
 
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="css/icon.css">
     <link rel="stylesheet" type="text/css" href="css/animate.css">
     <link rel="stylesheet" type="text/css" href="css/sweet-alert.css">
     <link rel="stylesheet" href="css/bootstrap-select.min.css">
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/izimodal/1.5.1/css/iziModal.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/iziModal.min.css">
 
 	<!--Estilos mios-->	
 	<link href="css/style.css" rel="stylesheet">
 
 </head>
 <body>
-  <div id="SeRento typ-paragraph modales"></div>
+  <div id="error" class="typ-paragraph"></div>
+  <div id="msg1" class ="typ-paragraph modales">
+    <h3>Tu locker está en proceso de cancelación, te avisaremos cuando esté todo listo.</h3>
+  </div>
+   <div id="msg2" class ="typ-paragraph modales">
+    <h3>El locker ha sido liberado.</h3>
+  </div>
 
   <div class="container-fluid ">
 
@@ -89,12 +94,11 @@
     <script type="text/javascript" src="js/noframework.waypoints.min.js"></script>
     <script type="text/javascript" src="js/sweet-alert.min.js"></script>
     <script type="text/javascript" src="js/bootstrap-select.min.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/izimodal/1.5.1/js/iziModal.min.js"></script> 
+    <script type="text/javascript" src = "js/iziModal.min.js"></script>
     <!-- jcueros mios -->
+    <script type="text/javascript" src="jWS/funciones.js"> </script>
     <script type="text/javascript" src="jWS/menu.js"> </script>
     <script type="text/javascript" src="js/animations.js"> </script>
-
-    <script type="text/javascript" src="jWS/funciones.js"> </script>
     <script type="text/javascript" src="jWS/cancelar.js"> </script>
 </body>
 

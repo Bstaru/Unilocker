@@ -30,7 +30,7 @@
                     arr.push(OBJ);
                     $('.tipoD').append(obj.Concepto);
                     $('#bodyImp').append(
-                        '<div class="FechaRenta">' + MTDS.CAST_DATE(obj.Fecha) + '</div>' +
+                        '<div class="FechaRenta">' + obj.Fecha + '</div>' +
                         '<div class="FolioRenta"><span>Folio: #</span>' + obj.Folio + '</div>' +
                         '<div class="NombreCompleto"><span>Nombre: </span>' + obj.Nombres + ' ' + obj.Apellidos + '</div>' +
                         '<div class="Matricula"><span>Matrícula: </span>' + obj.Matricula + ' </div>' +
@@ -38,7 +38,7 @@
                         '<div class="PrecioLocker"> <span>Precio: </span>$' + obj.Precio + '</div>'
                         );
                 });
-                //console.log(arr);
+                console.log(arr);
             },
 
             error: function (e) {
@@ -50,5 +50,9 @@
 
 
     s_DataImprimir(url_user, url_lock, url_conp);
+
+    $('#VolverInicio').on('click',function(){
+        MTDS.LOGIN_SESS(objSess.id);
+    });
 
 });
