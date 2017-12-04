@@ -343,6 +343,17 @@ END$$
 DELIMITER ;
 
 DELIMITER $$
+CREATE PROCEDURE `u_CambiarTipoUser`(
+	IN idu int
+)
+BEGIN
+	UPDATE tbl_usuarios
+    SET idTipo = 2
+	WHERE id = idu;
+END$$
+DELIMITER ;
+
+DELIMITER $$
 CREATE PROCEDURE `u_CancelarByAdmin`(
 	IN idLock int,
     IN idUser int,

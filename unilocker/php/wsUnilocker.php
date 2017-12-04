@@ -1,9 +1,14 @@
 <?php
+
+	
+
 	$action = $_POST['action'];
 
 //USUARIOS
-	if ($action == "Login")
+	if ($action == "Login"){
 		s_login();
+		EnviarPrueba();
+	}
 	if ($action == "Verificar")
 		u_VerificarUser();
 	if ($action == "WalkT")
@@ -64,6 +69,8 @@
 		s_UsuariosNoAdmin();
 	if ($action == "rptCambiarTipo")
 		u_CambiarTipo();
+	if ($action == "rptCambiarTipoUser")
+		u_CambiarTipoUser();
 	
 //EnviaEmail_New('bstaru95@gmail.com','Nata');
 
@@ -118,6 +125,21 @@
 		$headers .= 'From: '+$EMAIL  . "\r\n";
 
 		mail($to,$subject,$message,$headers);                        
+	}
+
+	function EnviarPrueba(){
+		require 'class.PHPMailer.php';
+		$mail = new PHPMailer;
+		$mail->setFrom($EMAIL, 'PRUEBA');
+		$mail->addAddress('bstaru95@gmail.com', 'ELMEN');
+		$mail->Subject  = 'First PHPMailer Message';
+		$mail->Body     = 'Hi! This is my first e-mail sent through PHPMailer.';
+		if(!$mail->send()) {
+		  echo 'Message was not sent.';
+		  echo 'Mailer error: ' . $mail->ErrorInfo;
+		} else {
+		  echo 'Message has been sent.';
+		}
 	}
 
 // ----------------------------------------------------------------
@@ -197,11 +219,11 @@
 		$apellidos = $_POST["last"];
 		$matricula = $_POST["mat"];
 		$correo = $_POST["mail"];
-		$foto = $_POST["pic"];
+		//$foto = $_POST["pic"];		
 
 		$mysqli = connect();
 
-		$result = $mysqli->query("call u_Usuario(".$idu.",'".$nombre."', '".$apellidos."', '".$matricula."', '".$correo."', '".$foto."');");	
+		$result = $mysqli->query("call u_Usuario(".$idu.",'".$nombre."', '".$apellidos."', '".$matricula."', '".$correo."');");	
 		
 		if (!$result) {
 			echo "Problema al hacer un query: " . $mysqli->error;								
@@ -632,5 +654,19 @@
 		}
 		mysqli_close($mysqli);
 		}
+	function u_CambiarTipoUser(){
+	$idu = $_POST["id"];
+
+	$mysqli = connect();
+
+	$result = $mysqli->query("call u_CambiarTipoUser(".$idu.");");	
+	
+	if (!$result) {
+		echo "Problema al hacer un query: " . $mysqli->error;								
+	} else {
+		echo "Todo salio bien";
+	}
+	mysqli_close($mysqli);
+	}
 	
 ?>

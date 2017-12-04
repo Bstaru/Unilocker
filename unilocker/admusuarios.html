@@ -23,10 +23,11 @@
 <body>
     <div id="error" class="typ-paragraph"></div>
     <div id="Modal_con" class="elem-hide typ-paragraph modales">
-        <p class="typ-modal-info">¿Convertir este a <span id="NombreUs"></span> en Administrador?.</p>
+        <p class="typ-modal-info">¿Convertir a <span id="NombreUs"></span> en <span id="tipoUser"></span> ?</p>
 
         <div class="text-center">
-            <div class="btn btn-aceptar" id="SiAdmin" idRegistro=""> Si</div>
+            <div class="btn btn-aceptar" id="SiAdmin" idRegistro=""> Convertir</div>
+            <!--  <div class="btn btn-aceptar" id="SiUser" idRegistro=""> Convertir a Usuario</div> -->
             <div class="btn btn-liberar" id="cancelar" idRegistro=""> Cancelar</div>
         </div>
     </div>
@@ -66,6 +67,7 @@
                               <th> <i class="user icon"></i> Nombre</th>
                               <th> <i class="id card outline icon"></i> Matricula</th>
                               <th> <i class="mail icon"></i>  Correo</th>
+                               <th>  Tipo</th>
                               <th> Editar</th>
                           </tr>
                       </thead>
@@ -88,7 +90,7 @@
                     </div>
                     <div class="col-sm-6 form-group">
                         <label for="mat_edit" class="lbl-Form-edit">Matrícula:</label>
-                        <input type="text" class="form-control input-txt-Form-edit" id="mat_add">
+                        <input type="text" class="form-control input-txt-Form-edit" id="mat_add" maxlength="7">
                     </div>
                     <div class="col-sm-6 form-group">
                         <label for="correo_edit" class="lbl-Form-edit">Correo:</label>
@@ -135,9 +137,9 @@
       <script type="text/javascript" src="DataTables/datatables.js"></script>
       <script type="text/javascript" src="js/iziModal.min.js"></script> 
     <!-- jcueros mios -->
-      <script type="text/javascript" src="js/animations.js"> </script>
-      <script type="text/javascript" src="jWS/menu.js"> </script>
       <script type="text/javascript" src="jWS/funciones.js"> </script>
+      <script type="text/javascript" src="jWS/menu.js"> </script>
+      <script type="text/javascript" src="js/animations.js"> </script>
       <script type="text/javascript" src="jWS/admusuarios.js"> </script>
 
 </body>

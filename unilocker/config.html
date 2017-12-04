@@ -14,8 +14,7 @@
     <link rel="stylesheet" type="text/css" href="css/animate.css">
     <link rel="stylesheet" type="text/css" href="css/sweet-alert.css">
     <link rel="stylesheet" type="text/css" href="css/bootstrap-select.min.css">
-    <link rel="stylesheet" type="text/css" href="DataTables/datatables.css"/>
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/izimodal/1.5.1/css/iziModal.min.css"/>
+    <link rel="stylesheet" type="text/css" href="css/iziModal.min.css">
 
   <!--Estilos mios--> 
   <link href="css/style.css" rel="stylesheet">
@@ -42,14 +41,19 @@
               <div class="frm-all">
                 <p class="typ-paragraph typ-info-edit">Editar mis datos de perfil:</p>
 
+                <form id="FotoForm" action="php/savePhoto.php" method="POST" enctype="multipart/form-data">
+
                       <div class="col-sm-6 form-group">
                           <div class="fotito">
                               <div class="uploader" onclick="$('#filePhoto').click()">
-                                  <img src="imgs-profile/default.png" />
-                                  <input type="file" name="userprofile_picture" id="filePhoto" />
+                                  <img src="imgs_profile/default.png" id="img_per" />
+                                  <input type="file" name="userprofile_picture" id="filePhoto" accept="image/png,image/jpeg" />
                               </div>
                               <p class="typ-paragraph text-center">Dá clic o arrastra tu imagen</p>
                           </div>
+                      </div>
+                       <div class="col-sm-6 form-group elem-hide">
+                          <input type="text" class="form-control input-txt-Form-edit" id="savePP" name="savePP" value="">
                       </div>
                       <div class="col-sm-6 form-group">
                           <label for="nombre_edit" class="lbl-Form-edit">Nombre(s):</label>
@@ -67,11 +71,15 @@
                           <label for="correo_edit" class="lbl-Form-edit">Correo:</label>
                           <input type="text" class="form-control input-txt-Form-edit" id="correo_edit">
                       </div>
+                      
                       <div class="col-sm-12 text-right">
-                          <div class="btn btn-Form" id="GuardarData_1" idUser="">Guardar</div>
+                          <div type = "button" class="btn btn-Form" id="GuardarData_1" idUser=""  value="">Guardar</div>
                           <br><br>
                       </div>
-                  <hr>
+                
+                </form>
+
+                <hr>
                 <p class="typ-paragraph typ-info-edit">Cambiar contraseña:</p>
 
                   <div class="col-sm-6 form-group">
@@ -111,8 +119,7 @@
       <script type="text/javascript" src = "js/noframework.waypoints.min.js"></script>
       <script type="text/javascript" src = "js/sweet-alert.min.js"></script>
       <script type="text/javascript" src = "js/bootstrap-select.min.js"></script>
-      <script type="text/javascript" src = "DataTables/datatables.min.js"></script>
-      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/izimodal/1.5.1/js/iziModal.min.js"></script> 
+     <script type="text/javascript" src = "js/iziModal.min.js"></script> 
     <!-- jcueros mios -->
       <script type="text/javascript" src="jWS/funciones.js"> </script>
       <script type="text/javascript" src="jWS/menu.js"> </script>

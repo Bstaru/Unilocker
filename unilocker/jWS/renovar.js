@@ -86,12 +86,13 @@
     window.s_LockerByUserOcupado = function (idUser, idSecc) {
 
         var param = {action:"selLockerUserOcupado", idsec: idSecc, idU: idUser };
-
+        
         $.ajax({
             type: "POST",
             url: domin ,
             data: param,
             dataType: "json",
+
 
             success: function (response) {
 
@@ -108,6 +109,7 @@
 
             error: function (e) {
                 console.log(e);
+                alertError.iziModal('open');
             }
         });
 
@@ -129,6 +131,7 @@
 
             error: function (e) {
                 console.log(e);
+                alertError.iziModal('open');
             }
         });
 
@@ -150,6 +153,7 @@
 
             error: function (e) {
                 console.log(e);
+                 alertError.iziModal('open');                
             }
         });
 

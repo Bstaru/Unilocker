@@ -4,33 +4,8 @@
 
     var Usuarios;
 
-    var spanish = {
-        "sProcessing": "Procesando...",
-        "sLengthMenu": "Mostrar _MENU_ registros",
-        "sZeroRecords": "No encontramos resultados",
-        "sEmptyTable": "No encontramos ningún registro",
-        "sInfo": "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
-        "sInfoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
-        "sInfoFiltered": "(filtrado de un total de _MAX_ registros)",
-        "sInfoPostFix": "",
-        "sSearch": "Buscar:",
-        "sUrl": "",
-        "sInfoThousands": ",",
-        "sLoadingRecords": "Cargando...",
-        "oPaginate": {
-            "sFirst": "Primero",
-            "sLast": "Último",
-            "sNext": "Siguiente",
-            "sPrevious": "Anterior"
-        },
-        "oAria": {
-            "sSortAscending": ": Activar para ordenar la columna de manera ascendente",
-            "sSortDescending": ": Activar para ordenar la columna de manera descendente"
-        }
-    }
-
     var ModalPen = $("#Modal_con").iziModal({
-        title: 'Convertir Administrador',
+        title: 'Convertir',
         subtitle: '.',
         headerColor: '#46acc2',
         zindex: 2000,
@@ -40,7 +15,7 @@
 
     var btnAceptarRenta = $("#SeRento").iziModal({
         title: "¡Listo!",
-        subtitle: 'El usuario ahora es administrador',
+        subtitle: 'Se cambio el tipo de usuario',
         iconText: '<i class="checkmark icon"></i>',
         headerColor: '#4cae4c',
         width: 600,
@@ -64,6 +39,17 @@
         pauseOnHover: true
     });
 
+
+
+    function limiar(){
+        $('#nombre_add').val('');
+        $('#apellidos_add').val('');
+        $('#mat_add').val('');
+        $('#correo_add').val('');
+        $('#correo_add_1').val('');
+        $('#correo_add_2').val('');
+    }
+
     function bindBTNROW_A() {
 
         $.each(Usuarios, function (index, value) {
@@ -71,7 +57,19 @@
             $('#EdU-' + value.id).unbind();
             $('#EdU-' + value.id).unbind().click(function () {
                 $('#NombreUs').empty();
+                $('#tipoUser').empty();
+
+                var tipoo = '';
+
+                if (value.Tipo == 'Usuario') {
+                    tipoo = "Administrador";
+                }
+                else{
+                    tipoo = "Usuario";
+                }
+
                 $('#NombreUs').append(value.Nombre);
+                $('#tipoUser').text(tipoo);
                 $('#SiAdmin').attr('idRegistro', value.id);
 
                 ModalPen.iziModal('open');
@@ -80,9 +78,9 @@
         });
     }
 
-    window.s_UsuariosNoAdmin = function () {
+    window.s_todoUsuarios = function () {
 
-        var param = {action:"rptNotAdmins"};
+        var param = {action:"rptTodosUsers"};
 
         $.ajax({
             type: "POST",
@@ -107,7 +105,7 @@
                         imagenU = '<img src="imgs-profile/default.png" class="img-profile_t img-responsive" id="">';
                     }                       
 
-                    var OBJ = [obj.id, imagenU, obj.Nombre, obj.Matricula, obj.Correo];
+                    var OBJ = [obj.id, imagenU, obj.Nombre, obj.Matricula, obj.Correo, obj.Tipo];
                     arr.push(OBJ);
                    
                 });
@@ -124,7 +122,7 @@
                     responsive: true,
                     data: arr,
                     columns: [{ 'Locker': 'Locker' }, { 'Precio': 'Precio' }, { 'Estado': 'Estado' }, { 'Usuario': 'Usuario' },
-                    { 'Usuario': 'Usuario' }, 
+                    { 'Usuario': 'Usuario' }, { 'Usuario': 'Usuario' }, 
                      {
                          "mData": null,
                          "bSortable": false,
@@ -162,7 +160,29 @@
 
             success: function (response) {
                 console.log(response);
-                s_UsuariosNoAdmin();
+                s_todoUsuarios();
+                ModalPen.iziModal('close');
+                btnAceptarRenta.iziModal('open');
+            },
+
+            error: function (e) {
+                console.log(e);
+            }
+        });
+
+    };
+    window.u_CambiarTipoUser = function (idUsuario) {
+
+        var param = {action:"rptCambiarTipoUser", id: idUsuario };
+
+        $.ajax({
+            type: "POST",
+            url: domin,
+            data: param,
+
+            success: function (response) {
+                console.log(response);
+                s_todoUsuarios();
                 ModalPen.iziModal('close');
                 btnAceptarRenta.iziModal('open');
             },
@@ -211,6 +231,7 @@
             success: function (response) {
                 console.log(response);
                 btnSehizo.iziModal('open');
+                limiar();
             },
 
             error: function (e) {
@@ -225,8 +246,13 @@
     });
 
     $('#SiAdmin').on('click', function () {
-        u_CambiarTipo($('#SiAdmin').attr('idRegistro'));
-    });
 
-    s_UsuariosNoAdmin();
+        if ( $('#tipoUser').text() == 'Usuario') {
+            u_CambiarTipoUser($('#SiAdmin').attr('idRegistro'));
+        }
+        else{
+            u_CambiarTipo($('#SiAdmin').attr('idRegistro'));
+        }
+    });
+    s_todoUsuarios();
 });

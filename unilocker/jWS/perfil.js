@@ -7,6 +7,8 @@
 
     var fecha = MTDS.TODAY();
 
+    $('#img_Perfil').attr('src',objSess.foto);
+    
     var lock = '';
     if (objSess.locker == "SIN LOCKER") { lock = 'Aun sin locker' }
     else{lock=objSess.locker}

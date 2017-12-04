@@ -2,6 +2,11 @@
 
     var MTDS = new METODOS();  
     var fecha = MTDS.TODAY();
+    var lafoto = MTDS.GET_URL_PARAM('archivo');
+
+    console.log(lafoto);
+
+   
 
     var btnOk = $("#msgok").iziModal({
         title: "¡Perfecto!",
@@ -37,18 +42,20 @@
     function DatosInputs() {    
         $('#userNN').attr('value', objSess.id);
         $('#GuardarData_1').attr('iduser', objSess.id);
+        $('#img_per').attr('src',objSess.foto);
+        $('#savePP').attr('value', objSess.id);
         $('#GuardarData_2').attr('iduser2', objSess.id)
         $('#nombre_edit').val(objSess.nombres);
         $('#apellidos_edit').val(objSess.apellidos);
         $('#mat_edit').val(objSess.matricula);
         $('#correo_edit').val(objSess.correo);
     }
-    window.u_Usuario = function (Idu, Nombres, Apellidos, Matricula, Correo, Foto) {
+    window.u_Usuario = function (Idu, Nombres, Apellidos, Matricula, Correo) {
 
         var param = {action:"upUsuario",
         id:Idu, name: Nombres, 
         last: Apellidos, mat: Matricula, 
-        mail: Correo, pic: Foto };
+        mail: Correo};
 
         $.ajax({
             type: "POST",
@@ -65,6 +72,7 @@
             }
         });
     };
+   
     window.u_Contra = function (Idu, Contra) {
 
         var param = {action:"upContra", id: Idu, pass: Contra};
@@ -105,24 +113,28 @@
             }
         });
 
-    };
+    }; 
 
-    DatosInputs();
+    if (lafoto != '') {     
+        DatosInputs();     
+        s_usuarioUpdate($('#GuardarData_1').attr('iduser'));    
+        $('#img_per').attr('src',lafoto); 
+    }
+    else{
+        //s_usuarioUpdate($('#GuardarData_1').attr('iduser'));    
+        DatosInputs();   
+    }  
 
     $('#GuardarData_1').on('click', function () {
-
-        var foto = $('#filePhoto').val();
 
         u_Usuario(  $('#GuardarData_1').attr('idUser'), 
                     $('#nombre_edit').val(),
                     $('#apellidos_edit').val(),
                     $('#mat_edit').val(), 
-                    $('#correo_edit').val(), 
-                    foto);
+                    $('#correo_edit').val());       
 
-        //sessionStorage.removeItem("UserSession"); 
-        s_usuarioUpdate($('#GuardarData_1').attr('iduser'));
-        DatosInputs();
+        //sessionStorage.removeItem("UserSession");    
+        $("#FotoForm").submit();
     });
 
     $('#GuardarData_2').on('click', function () {

@@ -1,6 +1,36 @@
 ﻿$(document).ready(function () {
 
-    var domin = 'php/wsUnilocker.php';
+    var MTDS = new METODOS();
+
+    var msgCampos = $("#msgCampos").iziModal({
+        title: "¡Espera!",
+        subtitle: "No has llenado todos los campos aún",
+        iconText: '<i class="warning sign icon"></i>',
+        headerColor: '#F2BE30',
+        zindex: 2000,
+        radius: 20,
+        width: 600,
+        timeout: 5000,
+        timeoutProgressbar: true,
+        transitionIn: 'fadeInDown',
+        transitionOut: 'fadeOutDown',
+        pauseOnHover: true
+    }); 
+
+    var msgPss  = $("#msgpss").iziModal({
+        title: "¡Espera!",
+        subtitle: "Las contraseñas no son iguales.",
+        iconText: '<i class="warning sign icon"></i>',
+        headerColor: '#F2BE30',
+        zindex: 2000,
+        radius: 20,
+        width: 600,
+        timeout: 5000,
+        timeoutProgressbar: true,
+        transitionIn: 'fadeInDown',
+        transitionOut: 'fadeOutDown',
+        pauseOnHover: true
+    });
 
     $('#newUser').on('click', function () {
 
@@ -17,11 +47,13 @@
                 i_usuario_reg(nombres, apellidos, matricula, correo, contra);                              
             }
             else {
-                swal("¡Espera!", "Las contraseñas no son iguales", "warning");
+                msgCampos.iziModal('open');
+                //swal("¡Espera!", "Las contraseñas no son iguales", "warning");
             }
         }
         else {
-            swal( "¡Alto ahí!", "No has llenado todos los campos aún", "warning" );
+            msgPss.iziModal('open'); 
+            //swal( "¡Alto ahí!", "No has llenado todos los campos aún", "warning" );
         }
         
     });
@@ -49,6 +81,7 @@
 
             error: function (e) {
                console.log(e);
+                alertError.iziModal('open'); 
             }
         });
 
