@@ -10,14 +10,14 @@ BEGIN
 	SET @consulta = (SELECT EXISTS(SELECT idUsuario FROM tbl_locker WHERE idUsuario = idUser));
     
 	IF(@consulta != 1) THEN
-		INSERT INTO tbl_renta (idLocker, idUsuario, idRentador,Comentarios,Fecha)
+		INSERT INTO tbl_renta (idLocker, idUsuario, idRentador,Comentarios,Concepto,Fecha)
 		VALUES (idLock,idUser,idRent,coments,'Rentado',dia);
         
         UPDATE tbl_locker
         SET idEstatus = 1, idUsuario = idUser
         WHERE id = idLock;
         
-         SELECT 'Se guardó';
+		SELECT 'Se guardó';
 	ELSE
 		SELECT 'El usuario ya cuenta con un locker';
 	END IF;
@@ -34,7 +34,7 @@ CREATE PROCEDURE `i_RentaByUsuario`(
 )
 BEGIN
 	SET @consulta = (SELECT EXISTS(SELECT idUsuario FROM tbl_locker WHERE idUsuario = idUser));
-    
+
 	IF(@consulta != 1) THEN
 		INSERT INTO tbl_renta (idLocker, idUsuario, idRentador,Comentarios,Concepto,Fecha)
 		VALUES (idLock,idUser,2,'-','Apartar',dia);
@@ -43,7 +43,7 @@ BEGIN
         SET idEstatus = 3, idUsuario = idUser
         WHERE id = idLock;
         
-		SELECT 'Se guardó';
+        SELECT 'Se guardó';
 	ELSE
 		SELECT 'Ya cuentas con un locker';
 	END IF;
@@ -54,7 +54,7 @@ BEGIN
 DELIMITER ;
 
 DELIMITER $$
-CREATE  PROCEDURE `i_usuario_adm`(
+CREATE PROCEDURE `i_usuario_adm`(
 	IN uname varchar(50),
     IN ulast varchar(50),
     IN mat varchar(10),
@@ -68,7 +68,7 @@ BEGIN
 DELIMITER ;
 
 DELIMITER $$
-CREATE  PROCEDURE `i_usuario_reg`(
+CREATE PROCEDURE `i_usuario_reg`(
 	IN uname varchar(50),
     IN ulast varchar(50),
     IN mat varchar(10),
@@ -82,7 +82,7 @@ BEGIN
 DELIMITER ;
 
 DELIMITER $$
-CREATE  PROCEDURE `s_DataImprimir`(
+CREATE PROCEDURE `s_DataImprimir`(
 	IN idUsuario INT, 
     IN idLocker INT,
     in concepto varchar(20)
@@ -102,19 +102,22 @@ BEGIN
 			r.idLocker = idLocker AND
 			(
 				(concepto = 'Rentar' AND R.Concepto = 'Rentar') OR
+                (concepto = 'Rentar' AND R.Concepto = 'Rentado') OR
 				(concepto = 'Renovar' AND R.Concepto = 'Renovar' ) OR
+                (concepto = 'Renovar' AND R.Concepto = 'Renovado' ) OR
 				(concepto = 'Apartar' AND R.Concepto = 'Apartar' ) OR
-				(concepto = 'Cancelar' AND R.Concepto = 'Cancelar')
-			);
-			
-
-	-- ORDER BY R.Fecha DESC
+                (concepto = 'Apartar' AND R.Concepto = 'Apartado' ) OR
+				(concepto = 'Cancelar' AND R.Concepto = 'Cancelar') OR
+                (concepto = 'Cancelar' AND R.Concepto = 'Cancelado')
+			)
+	ORDER BY R.id DESC
+    LIMIT 1;
         
 	END$$
 DELIMITER ;
 
 DELIMITER $$
-CREATE  PROCEDURE `s_Locker`(  
+CREATE PROCEDURE `s_Locker`(  
 )
 BEGIN
 	SELECT id,Numero, Precio, idEstatus, idSeccion, idUsuario 
@@ -125,7 +128,7 @@ BEGIN
 DELIMITER ;
 
 DELIMITER $$
-CREATE  PROCEDURE `s_LockerBySeccion`(  
+CREATE PROCEDURE `s_LockerBySeccion`(  
 IN idSec int
 )
 BEGIN
@@ -182,7 +185,7 @@ CREATE PROCEDURE `s_Pendientes`(
 )
 BEGIN
 	SELECT distinct
-		 R.id as FOLIO, R.Fecha, R.Concepto, L.Numero, L.Precio,CONCAT(U.Nombres,' ',U.Apellidos) AS Usuario, U.id as idU
+		 R.id as Folio, R.Fecha, R.Concepto, L.Numero, L.Precio,CONCAT(U.Nombres,' ',U.Apellidos) AS Usuario, U.id as idU
 
 	FROM tbl_locker L
 	INNER JOIN tbl_renta R
@@ -207,7 +210,6 @@ CREATE PROCEDURE `s_ReporteLockers_Tipo`(
 )
 BEGIN
 	SELECT distinct
-			-- R.id as FOLIO, R.Fecha,
 		 L.Numero, L.Precio, E.Estado, CONCAT(U.Nombres,' ',U.Apellidos) AS Usuario
 
 	FROM tbl_locker L
@@ -227,7 +229,7 @@ BEGIN
 DELIMITER ;
 
 DELIMITER $$
-CREATE  PROCEDURE `s_Resumen`()
+CREATE PROCEDURE `s_Resumen`()
 BEGIN
 	select R.id as Folio,  U.Nombres, L.Numero,R.Concepto, E.Estado, R.Fecha
 
@@ -259,7 +261,7 @@ DELIMITER $$
 CREATE PROCEDURE `s_todoUsuarios`(
 )
 BEGIN
-	SELECT U.id,U.Foto,CONCAT(U.Nombres,' ',U.Apellidos) as Nombre,U.Matricula,U.Correo,U.Activo, T.Nombre
+	SELECT U.id,U.Foto,CONCAT(U.Nombres,' ',U.Apellidos) as Nombre,U.Matricula,U.Correo,U.Activo, T.Nombre as Tipo
 	FROM tbl_usuarios U
     INNER JOIN tbl_tipo T
     ON U.idTipo = T.id
@@ -281,7 +283,7 @@ DELIMITER $$
 CREATE PROCEDURE `s_UsuariosNoAdmin`(
 )
 BEGIN
-	SELECT U.id,U.Foto,CONCAT(U.Nombres,' ',U.Apellidos) as Nombre,U.Matricula,U.Correo,U.Activo, T.Nombre
+	SELECT U.id,U.Foto,CONCAT(U.Nombres,' ',U.Apellidos) as Nombre,U.Matricula,U.Correo,U.Activo, T.Nombre as Tipo
 	FROM tbl_usuarios U
     INNER JOIN tbl_tipo T
     ON U.idTipo = T.id
@@ -347,6 +349,7 @@ CREATE PROCEDURE `u_CambiarTipoUser`(
 	IN idu int
 )
 BEGIN
+	
 	UPDATE tbl_usuarios
     SET idTipo = 2
 	WHERE id = idu;
@@ -395,6 +398,18 @@ CREATE PROCEDURE `u_Contra`(
 BEGIN
 	UPDATE tbl_usuarios
      SET Contra = MD5(pss)
+    WHERE id = idu;
+END$$
+DELIMITER ;
+
+DELIMITER $$
+CREATE PROCEDURE `u_Foto`(
+	IN idu int,
+    IN foto varchar(255)
+    )
+BEGIN
+	UPDATE tbl_usuarios
+    SET Foto = foto
     WHERE id = idu;
 END$$
 DELIMITER ;
@@ -453,12 +468,11 @@ CREATE PROCEDURE `u_Usuario`(
 	IN nombres varchar(50),
     IN apellid varchar(50),
     IN matricu varchar(10),
-    IN correo varchar(60),
-    IN foto varchar(255)
+    IN correo varchar(60)
 )
 BEGIN
 	UPDATE tbl_usuarios
-    SET Nombres = nombres, Apellidos = apellid, Matricula=matricu, Correo=correo,Foto=foto
+    SET Nombres = nombres, Apellidos = apellid, Matricula=matricu, Correo=correo
     WHERE id = idu;
 END$$
 DELIMITER ;
@@ -484,4 +498,3 @@ BEGIN
 	WHERE id = idd;
 END$$
 DELIMITER ;
-

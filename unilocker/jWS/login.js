@@ -64,10 +64,12 @@ $(document).ready(function () {
         
     });
     
+   // window.logIn = function (mail, pass) 
+
     function logIn(mail, pass) {
 
         var param = {action: "Login", mail:mail, pass:pass };
-       
+
         $.ajax({
             type: "POST",
             url: domin,

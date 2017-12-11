@@ -1,14 +1,11 @@
 <?php
 
-	
 
 	$action = $_POST['action'];
 
 //USUARIOS
-	if ($action == "Login"){
+	if ($action == "Login")
 		s_login();
-		EnviarPrueba();
-	}
 	if ($action == "Verificar")
 		u_VerificarUser();
 	if ($action == "WalkT")
@@ -76,10 +73,15 @@
 
 // CONEXIÓN BASE DE DATOS
 	function connect() {
-		$databasehost = "localhost"; //160.153.62.69
-		$databasename = "unilocker01";//unilocker02
-		$databaseuser = "root"; //ncm
-		$databasepass = "shineekey91";//QIzscCuT5T
+		// $databasehost = "localhost";
+		// $databasename = "unilocker01";
+		// $databaseuser = "root"; //ncm
+		// $databasepass = "shineekey91";//QIzscCuT5T
+
+		$databasehost = "160.153.62.69";
+		$databasename = "unilocker02";
+		$databaseuser = "bstaru95"; 
+		$databasepass = "uM7DGtE&j2#eVC";
 
 		$mysqli = new mysqli($databasehost, $databaseuser, $databasepass, $databasename);
 		if ($mysqli->connect_errno) {
@@ -92,55 +94,79 @@
 		}
 
 //EMAIL
-	$EMAIL = 'notificaciones@unilocker.com.mx';
-	$PASS = 'locker95?';
-	$PORTAL_LOCAL = 'http://localhost:8080/';
-	$PORTAL = 'http://www.unilocker.com.mx/';
-	function EnviaEmail_New(){
-		$name = 'Nata';
-		$to = 'bstaru95@gmail.com';
-		$subject = "¡Bienvenido!";
+	// $EMAIL = 'notificaciones@unilocker.com.mx';
+	// $PASS = 'locker95?';
+	// $PORTAL_LOCAL = 'http://localhost:8080/';
+	// $PORTAL = 'http://www.unilocker.com.mx/';
 
-		$htmlBody ="<link href='https://fonts.googleapis.com/css?family=Montserrat:400,500,700' rel='stylesheet'>" +
-            "<div style='background-color:#f0eff4; font-family:\"Montserrat\",sans-serif;padding:10%;'>" +
-                "<div style='background-color:#fff;padding:2%;'>" +
-                    "<div style='margin-top:5%; padding:5%;text-align:center;'>" +
-                        "<img src='https://drive.google.com/uc?export=view&id=0B3cBei8Bg7hCZDRFTG9OOUQ0M1E' style='width: 80%; margin: 0 auto; text-align:center;'>" +
-                    "</div>" +
-                    "<div style='margin: 0 auto; width: inherit;text-align:center;'>" +
-                        "<h2 style='text-transform: uppercase;font-size:'>BIENVENIDO " + $name + "</h2>" +
-                        "<p>Gracias por unirte a UNILOCKER. Hemos verificado tu cuenta, sólo te queda un paso más para comenzar a rentar tu locker. </p>" +
-                        "<a href='"+ $PORTAL_LOCAL + "verificar.html?correo="+ $to + "' target='_blank' style='text-decoration:none;display: inline-block;line-height: 1.42857143;"+
-                        "text-align: center;background-color: #4e4caa; border-radius: 25px;border: 1px solid transparent;font-family:\"Montserrat\",sans-serif;"+
-                        "font-size: 3vh;color: #fff; padding: 6px 23px; margin-top: 5%;cursor: pointer;'>Iniciar Sesión</a>" +
-                    "</div>" +
-                "</div>" +
-            "</div>";
+
+	// function EnviaEmail_New(){
+	// 	$name = 'Nata';
+	// 	$to = 'bstaru95@gmail.com';
+	// 	$subject = "¡Bienvenido!";
+
+	// 	$htmlBody ="<link href='https://fonts.googleapis.com/css?family=Montserrat:400,500,700' rel='stylesheet'>" +
+ //            "<div style='background-color:#f0eff4; font-family:\"Montserrat\",sans-serif;padding:10%;'>" +
+ //                "<div style='background-color:#fff;padding:2%;'>" +
+ //                    "<div style='margin-top:5%; padding:5%;text-align:center;'>" +
+ //                        "<img src='https://drive.google.com/uc?export=view&id=0B3cBei8Bg7hCZDRFTG9OOUQ0M1E' style='width: 80%; margin: 0 auto; text-align:center;'>" +
+ //                    "</div>" +
+ //                    "<div style='margin: 0 auto; width: inherit;text-align:center;'>" +
+ //                        "<h2 style='text-transform: uppercase;font-size:'>BIENVENIDO " + $name + "</h2>" +
+ //                        "<p>Gracias por unirte a UNILOCKER. Hemos verificado tu cuenta, sólo te queda un paso más para comenzar a rentar tu locker. </p>" +
+ //                        "<a href='"+ $PORTAL_LOCAL + "verificar.html?correo="+ $to + "' target='_blank' style='text-decoration:none;display: inline-block;line-height: 1.42857143;"+
+ //                        "text-align: center;background-color: #4e4caa; border-radius: 25px;border: 1px solid transparent;font-family:\"Montserrat\",sans-serif;"+
+ //                        "font-size: 3vh;color: #fff; padding: 6px 23px; margin-top: 5%;cursor: pointer;'>Iniciar Sesión</a>" +
+ //                    "</div>" +
+ //                "</div>" +
+ //            "</div>";
 	
-        // Always set content-type when sending HTML email
-		$headers = "MIME-Version: 1.0" . "\r\n";
-		$headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+ //        // Always set content-type when sending HTML email
+	// 	$headers = "MIME-Version: 1.0" . "\r\n";
+	// 	$headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
 
-		// More headers
-		$headers .= 'From: '+$EMAIL  . "\r\n";
+	// 	// More headers
+	// 	$headers .= 'From: '+$EMAIL  . "\r\n";
 
-		mail($to,$subject,$message,$headers);                        
-	}
+	// 	mail($to,$subject,$message,$headers);                        
+	// }
 
-	function EnviarPrueba(){
-		require 'class.PHPMailer.php';
-		$mail = new PHPMailer;
-		$mail->setFrom($EMAIL, 'PRUEBA');
-		$mail->addAddress('bstaru95@gmail.com', 'ELMEN');
-		$mail->Subject  = 'First PHPMailer Message';
-		$mail->Body     = 'Hi! This is my first e-mail sent through PHPMailer.';
-		if(!$mail->send()) {
-		  echo 'Message was not sent.';
-		  echo 'Mailer error: ' . $mail->ErrorInfo;
-		} else {
-		  echo 'Message has been sent.';
-		}
-	}
+	// function EnviarPrueba(){
+	// 	require 'PHPMailer_5.2.0/class.phpmailer.php';
+
+	// 	$email = "bstaru95@gmail.com";
+
+	// 	$mail = new PHPMailer;
+
+	// 	$EMAIL = 'notificaciones@unilocker.com.mx';
+
+	// 	$mail->IsSMTP(); 
+	// 	$mail->SMTPAuth = true;   
+	// 	// $mail->SMTPDebug = 2;                                     
+	// 	$mail->Host = "mail.unilocker.com.mx"; 
+	// 	$mail->Username = "notificaciones@unilocker.com.mx";  
+	// 	$mail->Password = "locker95?"; 
+	// 	$mail->Port = 465;
+	// 	$mail->From = "notificaciones@unilocker.com.mx";
+	// 	$mail->FromName = "UNILOCKER";
+
+		              
+	// 	$mail->AddAddress($email);
+
+	// 	$mail->WordWrap = 50;                                
+
+	// 	$mail->IsHTML(true);                                  
+
+	// 	$mail->Subject = "Confirmacion de cancelamiento de licencia.";
+	// 	$mail->Body     = 'Hi! This is my first e-mail sent through PHPMailer.';
+
+	// 	if(!$mail->send()) {
+	// 	  echo 'Message was not sent.';
+	// 	  echo 'Mailer error: ' . $mail->ErrorInfo;
+	// 	} else {
+	// 	  echo 'Message has been sent.';
+	// 	}
+	// }
 
 // ----------------------------------------------------------------
 
@@ -160,7 +186,9 @@
 			$rows = array();
 			while( $r = $result->fetch_assoc()) {
 				$rows[] = $r;
-			}			
+			}	
+
+			echo "se hizo";		
 			echo json_encode($rows);
 		}
 		mysqli_close($mysqli);

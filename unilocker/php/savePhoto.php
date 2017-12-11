@@ -1,10 +1,15 @@
 <?php
 
 function connect() {
-	$databasehost = "localhost"; //160.153.62.69
-	$databasename = "unilocker01";//unilocker02
-	$databaseuser = "root"; //ncm
-	$databasepass = "shineekey91";//QIzscCuT5T
+	$databasehost = "localhost";
+	$databasename = "unilocker01";
+	$databaseuser = "root"; 
+	$databasepass = "shineekey91";
+
+	// $databasehost = "160.153.62.69";
+	// $databasename = "unilocker02";
+	// $databaseuser = "bstaru95"; 
+	// $databasepass = "uM7DGtE&j2#eVC";
 
 	$mysqli = new mysqli($databasehost, $databaseuser, $databasepass, $databasename);
 	if ($mysqli->connect_errno) {
